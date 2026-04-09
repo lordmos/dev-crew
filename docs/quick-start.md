@@ -22,7 +22,10 @@ your-project/
 ├── INSTRUCTIONS.md    ← AI 行为指令（核心文件）
 ├── dev-crew.yaml       ← 项目配置
 └── dev-crew/
-    └── specs/         ← 共享规约
+    ├── resume.md      ← 编排状态
+    ├── blockers.md    ← 问题跟踪
+    ├── specs/         ← 共享规约
+    └── memory/        ← Agent 长期记忆
 ```
 
 ## 开始工作

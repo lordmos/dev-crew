@@ -17,21 +17,30 @@ flowchart LR
     V -->|通过| Done["[OK] 完成"]
 ```
 
-- **Plan** — 需求整理，明确目标和验收标准
-- **Design** — 技术方案设计，任务分解
-- **Execute** — 编码实现
-- **Verify** — 测试验证 + 代码审查
-- **Iterate** — 不通过时自动回退修复
+- **Plan** — PdM 整理需求，明确目标和验收标准
+- **Design** — Architect 设计技术方案，任务分解
+- **Execute** — Implementer 编码实现
+- **Verify** — Tester 测试验证 + Reviewer 代码审查（平行）
+- **Iterate** — 不通过时 PjM 协调回退修复
 
 ## 文件即记忆
 
-DevCrew 使用文件系统作为持久化记忆：
+DevCrew 使用文件系统作为持久化记忆，分为两层：
 
+**全局文件**（跨变更）：
 - `INSTRUCTIONS.md` — AI 的行为指令
 - `dev-crew.yaml` — 项目配置
 - `dev-crew/specs/` — 共享规约
+- `dev-crew/memory/` — 各 Agent 的长期记忆
 
-换窗口、换对话，AI 读取这些文件就能恢复上下文。
+**变更级文件**（每个 Agent 各自维护）：
+- `proposal.md` — PdM 的需求产出
+- `design.md` — Architect 的方案产出
+- `impl-log.md` — Implementer 的实现日志
+- `test-report.md` — Tester 的验证报告
+- `review-report.md` — Reviewer 的审查报告
+
+换窗口、换对话，每个 Agent 读取自己的记忆文件就能恢复上下文。
 
 ## Blocker
 

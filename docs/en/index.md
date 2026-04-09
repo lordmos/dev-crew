@@ -19,8 +19,8 @@ hero:
 
 features:
   - icon: <i class="fas fa-robot"></i>
-    title: 6-Person Built-in Team
-    details: Project Manager, Product Manager, Architect, Developer, Tester, Reviewer — roles switch automatically.
+    title: 6-Agent Collaborative Team
+    details: PjM orchestrates the team — Product, Architect, Developer, Tester, Reviewer agents work in parallel.
   - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI Workflow
     details: Plan → Design → Execute → Verify → Iterate. Three modes for every development scenario.
@@ -32,7 +32,7 @@ features:
     details: Works with GitHub Copilot, Claude, ChatGPT, Cursor, and any AI platform.
   - icon: <i class="fas fa-folder-open"></i>
     title: Files as Memory
-    details: File-system-based persistent collaboration protocol. Context survives across sessions.
+    details: Each agent maintains independent long-term memory and work logs — context auto-recovers across sessions.
   - icon: <i class="fas fa-bolt"></i>
     title: Ready Out of the Box
     details: One command to initialize. AI reads the protocol and assembles the team automatically.

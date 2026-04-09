@@ -9,7 +9,7 @@ const program = new Command();
 program
   .name("crew")
   .description("DevCrew — AI Agent 软件开发团队编排工具")
-  .version("0.1.0");
+  .version("0.3.0");
 
 program
   .command("init")

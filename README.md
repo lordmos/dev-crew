@@ -79,10 +79,11 @@ your-project/
 ├── INSTRUCTIONS.md    ← AI 行为指令（核心文件）
 ├── dev-crew.yaml      ← 项目配置（模式、专家选择）
 └── dev-crew/
-    └── specs/         ← 共享规约
+    ├── specs/         ← 共享规约
+    └── memory/        ← Agent 长期记忆（自动积累）
 ```
 
-AI 读取 `INSTRUCTIONS.md` 后，自动建立团队，按 PDEVI 流程协作。
+AI 读取 `INSTRUCTIONS.md` 后，PjM 自动编排团队，各 Agent 按 PDEVI 流程平行协作。
 
 ---
 
@@ -109,18 +110,18 @@ flowchart LR
 | **Express** | P → E → V | Bug 修复 |
 | **Prototype** | P → D → E | 快速原型 |
 
-### 内建团队（6 人）
+### 内建团队（6 个 Agent）
 
-| 角色 | 职责 |
-|------|------|
-| **PjM** 项目经理 | 调度编排、模式推断、阶段推进 |
+| Agent | 职责 |
+|-------|------|
+| **PjM** 项目经理 | 任务拆解、Agent 调度、进度协调 |
 | **PdM** 产品经理 | 需求梳理、PRD 导入、验收标准 |
 | **Architect** 架构师 | 技术选型、任务分解、依赖分析 |
 | **Implementer** 开发 | 代码生成、重构、依赖安装 |
 | **Tester** 测试 | 测试执行、验收检查、覆盖率 |
 | **Reviewer** 审查 | 规范检查、安全扫描、最佳实践 |
 
-角色切换完全自动，无需手动分配。
+PjM 统筹全局，各 Agent 各司其职、平行协作，无需手动分配。
 
 ### 领域专家（29 位）
 

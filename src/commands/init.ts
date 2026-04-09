@@ -52,14 +52,51 @@ export async function initCommand(options: InitOptions): Promise<void> {
     console.log("⚙️  创建 dev-crew.yaml（项目配置）");
   }
 
-  // 4. Create specs/ directory
+  // 4. Create specs/ and memory/ directories
   const specsDir = join(crewDir, "specs");
   if (!existsSync(specsDir)) {
     mkdirSync(specsDir, { recursive: true });
     console.log("📁 创建 dev-crew/specs/");
   }
 
-  // 5. Add .gitignore rules
+  const memoryDir = join(crewDir, "memory");
+  if (!existsSync(memoryDir)) {
+    mkdirSync(memoryDir, { recursive: true });
+    console.log("📁 创建 dev-crew/memory/");
+  }
+
+  // 5. Create resume.md
+  const resumePath = join(crewDir, "resume.md");
+  if (!existsSync(resumePath)) {
+    writeFileSync(resumePath, `---
+active_changes: []
+---
+## 活跃变更
+
+无
+
+## 待解决
+
+无
+
+## 下一步
+
+使用 /crew:plan <名称> 创建第一个变更。
+`);
+    console.log("📄 创建 dev-crew/resume.md（编排状态）");
+  }
+
+  // 6. Create blockers.md
+  const blockersPath = join(crewDir, "blockers.md");
+  if (!existsSync(blockersPath)) {
+    writeFileSync(blockersPath, `# 问题与决策
+
+暂无 blocker。
+`);
+    console.log("📄 创建 dev-crew/blockers.md（问题跟踪）");
+  }
+
+  // 7. Add .gitignore rules
   if (options.gitignore) {
     appendGitignore(cwd);
   }
@@ -72,7 +109,10 @@ export async function initCommand(options: InitOptions): Promise<void> {
    INSTRUCTIONS.md          ← AI 行为指令（核心文件）
    dev-crew.yaml            ← 项目配置（入库）
    dev-crew/
-   └── specs/               ← 共享规约（入库）
+   ├── resume.md            ← PjM 编排状态
+   ├── blockers.md          ← 问题与决策
+   ├── specs/               ← 共享规约（入库）
+   └── memory/              ← Agent 长期记忆（自动维护）
 
 🎬 下一步:
    打开 AI 对话，输入 /crew:plan <变更名称> 开始工作

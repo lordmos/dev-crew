@@ -79,10 +79,11 @@ your-project/
 ├── INSTRUCTIONS.md    ← AI behavior instructions (core file)
 ├── dev-crew.yaml       ← Project config (modes, specialists)
 └── dev-crew/
-    └── specs/         ← Shared specifications
+    ├── specs/         ← Shared specifications
+    └── memory/        ← Agent long-term memory (auto-accumulated)
 ```
 
-AI reads `INSTRUCTIONS.md` and automatically assembles the team, following the PDEVI workflow.
+AI reads `INSTRUCTIONS.md` and PjM orchestrates the team — agents collaborate in parallel following the PDEVI workflow.
 
 ---
 
@@ -109,18 +110,18 @@ Three modes for every scenario:
 | **Express** | P → E → V | Bug fixes |
 | **Prototype** | P → D → E | Quick prototyping |
 
-### Built-in Team (6 Roles)
+### Built-in Team (6 Agents)
 
-| Role | Responsibility |
-|------|---------------|
-| **PjM** Project Manager | Orchestration, mode inference, stage transitions |
+| Agent | Responsibility |
+|-------|---------------|
+| **PjM** Project Manager | Task decomposition, agent coordination, progress tracking |
 | **PdM** Product Manager | Requirements analysis, PRD import, acceptance criteria |
 | **Architect** | Tech decisions, task decomposition, dependency analysis |
 | **Implementer** | Code generation, refactoring, dependency management |
 | **Tester** | Test execution, acceptance checks, coverage |
 | **Reviewer** | Code review, security scanning, best practices |
 
-Role switching is fully automatic — no manual assignment needed.
+PjM orchestrates the entire team — multiple agents work in parallel, no manual assignment needed.
 
 ### Domain Specialists (29)
 

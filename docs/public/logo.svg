@@ -1,100 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" width="360" height="100">
   <defs>
-    <linearGradient id="helmetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2A2A2A"/>
-      <stop offset="100%" stop-color="#1A1A1A"/>
+    <linearGradient id="h" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#27272A"/>
+      <stop offset="100%" stop-color="#18181B"/>
     </linearGradient>
-    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFD600" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#FFC107" stop-opacity="0.85"/>
-    </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    <filter id="s">
+      <feDropShadow dx="0" dy="1" stdDeviation="2.5" flood-color="#000" flood-opacity="0.2"/>
     </filter>
   </defs>
 
-  <!-- === Robot 1: PM (Left, small) === -->
-  <g transform="translate(90, 80)" filter="url(#shadow)">
-    <!-- Antenna -->
-    <line x1="0" y1="-44" x2="0" y2="-52" stroke="#FFD600" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="0" cy="-55" r="3.5" fill="#FFD600"/>
-    <!-- Helmet -->
-    <rect x="-26" y="-42" width="52" height="42" rx="12" fill="url(#helmetGrad)" stroke="#333" stroke-width="1.5"/>
-    <!-- Visor (classic LEGO Space curved visor) -->
-    <path d="M-18,-24 Q-18,-32 -10,-32 L10,-32 Q18,-32 18,-24 L18,-16 Q18,-8 10,-8 L-10,-8 Q-18,-8 -18,-16 Z" fill="#111" stroke="#444" stroke-width="1"/>
-    <!-- Eyes behind visor -->
-    <circle cx="-8" cy="-20" r="4.5" fill="#FFD600"/>
-    <circle cx="8" cy="-20" r="4.5" fill="#FFD600"/>
-    <circle cx="-8" cy="-20" r="2" fill="#111"/>
-    <circle cx="8" cy="-20" r="2" fill="#111"/>
-    <!-- Chin / mouth grill -->
-    <rect x="-10" y="-5" width="20" height="3" rx="1.5" fill="#333"/>
-    <rect x="-7" y="-1" width="14" height="2" rx="1" fill="#333"/>
-    <!-- Ear panels -->
-    <rect x="-30" y="-30" width="6" height="14" rx="3" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <rect x="24" y="-30" width="6" height="14" rx="3" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <!-- Role indicator -->
-    <rect x="-28" y="4" width="56" height="16" rx="4" fill="#FFD600"/>
-    <text x="0" y="15" font-family="'Space Grotesk', sans-serif" font-size="9" fill="#111" text-anchor="middle" font-weight="700" letter-spacing="0.5">PM</text>
+  <!-- Robot 1 — Organizer (left, small) -->
+  <g transform="translate(75, 68)" filter="url(#s)">
+    <line x1="0" y1="-38" x2="0" y2="-47" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="-50" r="3" fill="#FBBF24"/>
+    <rect x="-24" y="-36" width="48" height="38" rx="11" fill="url(#h)" stroke="#3F3F46" stroke-width="1.5"/>
+    <rect x="-17" y="-28" width="34" height="20" rx="6" fill="#0F0F12" stroke="#3F3F46" stroke-width="1"/>
+    <circle cx="-7" cy="-18" r="4" fill="#FBBF24"/>
+    <circle cx="7" cy="-18" r="4" fill="#FBBF24"/>
+    <circle cx="-7" cy="-18" r="1.8" fill="#0F0F12"/>
+    <circle cx="7" cy="-18" r="1.8" fill="#0F0F12"/>
+    <rect x="-8" y="-4" width="16" height="2.5" rx="1.2" fill="#3F3F46"/>
+    <rect x="-28" y="-26" width="5" height="12" rx="2.5" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
+    <rect x="23" y="-26" width="5" height="12" rx="2.5" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
   </g>
 
-  <!-- === Robot 2: DEV (Center, large) === -->
-  <g transform="translate(200, 72)" filter="url(#shadow)">
-    <!-- Antenna array -->
-    <line x1="-6" y1="-52" x2="-6" y2="-62" stroke="#FFD600" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="6" y1="-52" x2="6" y2="-60" stroke="#FFD600" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="-6" cy="-65" r="4" fill="#FFD600"/>
-    <circle cx="6" cy="-63" r="3" fill="#FFD600"/>
-    <!-- Helmet (larger) -->
-    <rect x="-32" y="-50" width="64" height="52" rx="14" fill="url(#helmetGrad)" stroke="#444" stroke-width="1.8"/>
-    <!-- Visor (wide, LEGO Space style) -->
-    <path d="M-24,-30 Q-24,-40 -14,-40 L14,-40 Q24,-40 24,-30 L24,-18 Q24,-8 14,-8 L-14,-8 Q-24,-8 -24,-18 Z" fill="#111" stroke="#555" stroke-width="1.2"/>
-    <!-- Eyes behind visor -->
-    <circle cx="-10" cy="-24" r="5.5" fill="#FFD600"/>
-    <circle cx="10" cy="-24" r="5.5" fill="#FFD600"/>
-    <circle cx="-10" cy="-24" r="2.5" fill="#111"/>
-    <circle cx="10" cy="-24" r="2.5" fill="#111"/>
-    <!-- Code symbol on visor -->
-    <text x="0" y="-10" font-family="monospace" font-size="7" fill="#FFD600" text-anchor="middle" opacity="0.6">&lt;/&gt;</text>
-    <!-- Chin / mouth grill -->
-    <rect x="-12" y="-4" width="24" height="3.5" rx="1.5" fill="#333"/>
-    <rect x="-8" y="1" width="16" height="2.5" rx="1" fill="#333"/>
-    <!-- Ear panels -->
-    <rect x="-36" y="-36" width="7" height="18" rx="3.5" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <rect x="29" y="-36" width="7" height="18" rx="3.5" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <!-- Helmet ridge (LEGO Space classic) -->
-    <path d="M-20,-50 Q0,-58 20,-50" fill="none" stroke="#FFD600" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-    <!-- Role indicator -->
-    <rect x="-32" y="6" width="64" height="18" rx="4" fill="#FFD600"/>
-    <text x="0" y="18" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#111" text-anchor="middle" font-weight="700" letter-spacing="0.5">DEV</text>
+  <!-- Robot 2 — Builder (center, large) -->
+  <g transform="translate(180, 62)" filter="url(#s)">
+    <line x1="-7" y1="-46" x2="-7" y2="-57" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="-7" cy="-60" r="3.5" fill="#FBBF24"/>
+    <line x1="7" y1="-46" x2="7" y2="-54" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="7" cy="-57" r="2.8" fill="#FBBF24"/>
+    <rect x="-30" y="-44" width="60" height="46" rx="13" fill="url(#h)" stroke="#3F3F46" stroke-width="1.5"/>
+    <path d="M-18,-44 Q0,-52 18,-44" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+    <rect x="-22" y="-35" width="44" height="24" rx="7" fill="#0F0F12" stroke="#3F3F46" stroke-width="1"/>
+    <circle cx="-9" cy="-23" r="5" fill="#FBBF24"/>
+    <circle cx="9" cy="-23" r="5" fill="#FBBF24"/>
+    <circle cx="-9" cy="-23" r="2.2" fill="#0F0F12"/>
+    <circle cx="9" cy="-23" r="2.2" fill="#0F0F12"/>
+    <rect x="-10" y="-6" width="20" height="3" rx="1.5" fill="#3F3F46"/>
+    <rect x="-34" y="-32" width="6" height="14" rx="3" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
+    <rect x="28" y="-32" width="6" height="14" rx="3" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
   </g>
 
-  <!-- === Robot 3: QA (Right, medium) === -->
-  <g transform="translate(310, 76)" filter="url(#shadow)">
-    <!-- Antenna -->
-    <line x1="0" y1="-48" x2="0" y2="-58" stroke="#FFD600" stroke-width="2.5" stroke-linecap="round"/>
-    <rect x="-4" y="-62" width="8" height="6" rx="2" fill="#FFD600"/>
-    <!-- Helmet -->
-    <rect x="-28" y="-46" width="56" height="46" rx="13" fill="url(#helmetGrad)" stroke="#333" stroke-width="1.5"/>
-    <!-- Visor -->
-    <path d="M-20,-28 Q-20,-36 -12,-36 L12,-36 Q20,-36 20,-28 L20,-16 Q20,-8 12,-8 L-12,-8 Q-20,-8 -20,-16 Z" fill="#111" stroke="#444" stroke-width="1"/>
-    <!-- Eyes behind visor -->
-    <circle cx="-8" cy="-22" r="5" fill="#FFD600"/>
-    <circle cx="8" cy="-22" r="5" fill="#FFD600"/>
-    <circle cx="-8" cy="-22" r="2.2" fill="#111"/>
-    <circle cx="8" cy="-22" r="2.2" fill="#111"/>
-    <!-- Scanning line on visor -->
-    <line x1="-14" y1="-12" x2="14" y2="-12" stroke="#FFD600" stroke-width="1" opacity="0.4"/>
-    <!-- Chin / mouth grill -->
-    <rect x="-10" y="-4" width="20" height="3" rx="1.5" fill="#333"/>
-    <rect x="-7" y="0" width="14" height="2" rx="1" fill="#333"/>
-    <!-- Ear panels -->
-    <rect x="-32" y="-32" width="6" height="16" rx="3" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <rect x="26" y="-32" width="6" height="16" rx="3" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
-    <!-- Checkmark on visor -->
-    <path d="M-3,-14 L0,-11 L5,-17" fill="none" stroke="#FFD600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-    <!-- Role indicator -->
-    <rect x="-28" y="4" width="56" height="16" rx="4" fill="#FFD600"/>
-    <text x="0" y="15" font-family="'Space Grotesk', sans-serif" font-size="9" fill="#111" text-anchor="middle" font-weight="700" letter-spacing="0.5">QA</text>
+  <!-- Robot 3 — Inspector (right, medium) -->
+  <g transform="translate(285, 66)" filter="url(#s)">
+    <line x1="0" y1="-40" x2="0" y2="-50" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-3.5" y="-55" width="7" height="5" rx="1.5" fill="#FBBF24"/>
+    <rect x="-26" y="-38" width="52" height="42" rx="12" fill="url(#h)" stroke="#3F3F46" stroke-width="1.5"/>
+    <rect x="-19" y="-30" width="38" height="22" rx="8" fill="#0F0F12" stroke="#3F3F46" stroke-width="1"/>
+    <line x1="-13" y1="-14" x2="13" y2="-14" stroke="#FBBF24" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+    <circle cx="-8" cy="-20" r="4.5" fill="#FBBF24"/>
+    <circle cx="8" cy="-20" r="4.5" fill="#FBBF24"/>
+    <circle cx="-8" cy="-20" r="2" fill="#0F0F12"/>
+    <circle cx="8" cy="-20" r="2" fill="#0F0F12"/>
+    <rect x="-9" y="-3" width="18" height="2.5" rx="1.2" fill="#3F3F46"/>
+    <rect x="-30" y="-28" width="5.5" height="13" rx="2.5" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
+    <rect x="24.5" y="-28" width="5.5" height="13" rx="2.5" fill="#27272A" stroke="#3F3F46" stroke-width="1"/>
   </g>
 </svg>

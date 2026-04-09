@@ -22,7 +22,10 @@ your-project/
 ├── INSTRUCTIONS.md    ← AI behavior instructions (core file)
 ├── dev-crew.yaml       ← Project configuration
 └── dev-crew/
-    └── specs/         ← Shared specifications
+    ├── resume.md      ← Orchestration state
+    ├── blockers.md    ← Issue tracking
+    ├── specs/         ← Shared specifications
+    └── memory/        ← Agent long-term memory
 ```
 
 ## Start Working

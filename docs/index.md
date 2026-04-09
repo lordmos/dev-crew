@@ -19,8 +19,8 @@ hero:
 
 features:
   - icon: <i class="fas fa-robot"></i>
-    title: 6 人内建团队
-    details: 项目经理、产品经理、架构师、开发、测试、审查——角色自动切换，无需手动分配。
+    title: 6 Agent 协作团队
+    details: 项目经理统筹调度，产品、架构、开发、测试、审查——多 Agent 平行协作，无需手动分配。
   - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI 工作流
     details: Plan → Design → Execute → Verify → Iterate，三种模式覆盖所有开发场景。
@@ -32,7 +32,7 @@ features:
     details: 适用于 GitHub Copilot、Claude、ChatGPT、Cursor 等任何 AI 平台。
   - icon: <i class="fas fa-folder-open"></i>
     title: 文件即记忆
-    details: 基于文件系统的持久化协作协议，换窗口也不丢失上下文。
+    details: 每个 Agent 维护独立的长期记忆和工作记录，跨会话自动恢复上下文。
   - icon: <i class="fas fa-bolt"></i>
     title: 开箱即用
     details: 一条命令初始化，AI 自动读取协议并建立团队。
