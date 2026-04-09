@@ -15,6 +15,15 @@ cd your-project
 crew init
 ```
 
+针对特定平台（自动写入平台指令文件）：
+
+```bash
+crew init --platform copilot    # → .github/copilot-instructions.md
+crew init --platform cursor     # → .cursorrules
+crew init --platform claude     # → CLAUDE.md
+crew init -p copilot cursor     # 多平台同时适配
+```
+
 `crew init` 会创建：
 
 ```
@@ -25,12 +34,13 @@ your-project/
     ├── resume.md      ← 编排状态
     ├── blockers.md    ← 问题跟踪
     ├── specs/         ← 共享规约
-    └── memory/        ← Agent 长期记忆
+    ├── memory/        ← Agent 长期记忆
+    └── templates/     ← 文档格式模板
 ```
 
 ## 开始工作
 
-打开任意 AI 对话工具（Copilot、Claude、Cursor 等），AI 会自动读取 `INSTRUCTIONS.md`，建立团队，按 PDEVI 流程协作。
+初始化完成后，打开 AI 对话工具（Copilot、Claude、Cursor 等），直接用自然语言描述需求即可。AI 会自动读取 `INSTRUCTIONS.md`，按 PDEVI 流程工作：
 
 ```
 你: 我要给 API 加认证中间件
@@ -51,6 +61,8 @@ AI: [OK] 变更 add-api-auth 完成。
 ```
 
 你只需确认两次（需求 + 结果），其余全部自动。
+
+> 💡 除了自然语言，你也可以通过 CLI（`crew plan`）或 MCP Server 触发 Skills。详见[使用指南](./guide)。
 
 ## 查看可用专家
 

@@ -24,16 +24,20 @@ function formatResult(result: SkillResult) {
 
 const server = new McpServer({
   name: "dev-crew",
-  version: "0.4.0",
+  version: "0.5.0",
 });
 
 // --- Skill: init ---
 server.tool(
   "crew_init",
-  "初始化 DevCrew 工作区（创建 dev-crew/ 目录、INSTRUCTIONS.md、配置文件等）",
+  "初始化 DevCrew 工作区（创建 dev-crew/ 目录、INSTRUCTIONS.md、配置文件、Agent 记忆文件，可指定 AI 平台自动配置）",
   {
     cwd: z.string().describe("项目根目录的绝对路径"),
     name: z.string().optional().describe("项目名称（默认从 package.json 或目录名推断）"),
+    platform: z
+      .array(z.enum(["copilot", "cursor", "claude"]))
+      .optional()
+      .describe("AI 平台列表，自动将指令文件放到平台读取的位置"),
     gitignore: z
       .boolean()
       .optional()
@@ -86,6 +90,17 @@ server.tool(
   "列出所有可用的领域专家（Specialist Agent）",
   {},
   async () => formatResult(skills.agents()),
+);
+
+// --- Skill: checkpoint ---
+server.tool(
+  "crew_checkpoint",
+  "阶段审计：运行审计清单 + 一致性检查 + 记忆同步提醒，确认当前阶段可推进",
+  {
+    cwd: z.string().describe("项目根目录的绝对路径"),
+    change: z.string().optional().describe("变更名称（不指定则自动选择第一个活跃变更）"),
+  },
+  async (input) => formatResult(skills.checkpoint(input)),
 );
 
 // --- Start ---

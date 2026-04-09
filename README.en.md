@@ -39,12 +39,19 @@ When using AI (Copilot, Claude, Cursor…) for development:
 ```bash
 npm install -g @lordmos/dev-crew
 cd your-project
-crew init
+crew init --platform copilot   # or cursor / claude
 ```
 
-Three steps — your project now has a **ready-to-use 6-person AI dev team** + **29 optional domain specialists**, fully auto-orchestrated.
+Three steps — INSTRUCTIONS.md is auto-placed where your AI platform reads it. The AI instantly gains multi-agent team orchestration capabilities.
 
-Works with **GitHub Copilot · Claude · ChatGPT · Cursor** and any AI platform.
+| Platform | Command | Instruction File |
+|----------|---------|-----------------|
+| **GitHub Copilot** | `crew init -p copilot` | `.github/copilot-instructions.md` |
+| **Cursor** | `crew init -p cursor` | `.cursorrules` |
+| **Claude Code** | `crew init -p claude` | `CLAUDE.md` |
+| **Generic** | `crew init` | `INSTRUCTIONS.md` (reference manually) |
+
+> Multiple platforms at once: `crew init -p copilot cursor`
 
 ---
 
@@ -150,13 +157,14 @@ crew agents  # List all available specialists
 
 | Skill | CLI | MCP Tool | Purpose |
 |-------|-----|----------|---------|
-| **init** | `crew init` | `crew_init` | Initialize workspace |
+| **init** | `crew init` | `crew_init` | Initialize workspace + agent memory files |
 | **plan** | `crew plan <name>` | `crew_plan` | Create a change and start working |
 | **status** | `crew status` | `crew_status` | Check current progress |
-| **release** | `crew release` | `crew_release` | Archive completed changes |
+| **checkpoint** | `crew checkpoint` | `crew_checkpoint` | Phase audit + consistency check + memory sync |
+| **release** | `crew release` | `crew_release` | Archive changes + consolidate memory |
 | **agents** | `crew agents` | `crew_agents` | List available specialists |
 
-> Natural language works too — "show me the progress" triggers the status skill automatically
+> Natural language works too — "run a checkpoint" triggers the checkpoint skill automatically
 
 ---
 

@@ -10,19 +10,36 @@
 ### Step 1 — 初始化
 
 ```
-小明: 帮我初始化 DevCrew
+小明: 帮我初始化 DevCrew，我用的是 Copilot
+```
+
+```bash
+crew init --platform copilot
 ```
 
 AI 创建了这些文件：
 
 ```
 project-root/
+├── INSTRUCTIONS.md               ← AI 行为指令（核心协议）
+├── .github/copilot-instructions.md  ← Copilot 自动读取
 ├── dev-crew.yaml
-├── .gitignore            ← 追加了 dev-crew/ 排除规则
+├── .gitignore
 └── dev-crew/
     ├── resume.md
     ├── blockers.md
-    └── changes/
+    ├── templates/                ← 文档格式模板
+    │   ├── proposal.md
+    │   ├── design.md
+    │   ├── impl-log.md
+    │   ├── test-report.md
+    │   └── review-report.md
+    └── memory/                   ← Agent 长期记忆
+        ├── pdm.md
+        ├── architect.md
+        ├── implementer.md
+        ├── tester.md
+        └── reviewer.md
 ```
 
 **dev-crew.yaml**:
@@ -127,19 +144,14 @@ AI: ✅ 已完成 [5/5] 测试
     - 创建 src/__tests__/storage.test.ts（4 个测试用例）
 ```
 
-此时 `resume.md` YAML frontmatter：
+Execute 完成后，PjM 执行 checkpoint：
 
-```yaml
----
-active_changes:
-  - name: "todo-app-mvp"
-    mode: standard
-    phase: verify
-    progress: "5/5"
-    plan_confirmed: true
-    verify_confirmed: false
-    iterate_count: 0
----
+```
+AI: 📋 Execute 阶段审计:
+    ✅ impl-log.md 所有任务 [x]
+    ✅ 每条附带文件路径 + 改动摘要
+    ✅ 与 design.md 任务一一对应
+    审计通过，推进至 Verify。
 ```
 
 ### Step 5 — Verify 阶段
@@ -278,11 +290,17 @@ AI 更新 `proposal.md` frontmatter: `mode: standard`, `upgraded_from: prototype
 三个变更都完成后：
 
 ```
-小明: 任务都做完了，帮我归档
+小明: 帮我归档
 AI: 📦 归档 3 个已完成变更:
     - todo-app-mvp (Standard)
     - fix-tag-filter (Express)
     - poc-tui (Prototype → Standard)
+    
+    🧠 记忆整合:
+    - memory/pdm.md ← 用户偏好: 喜欢简洁的 CLI 交互
+    - memory/architect.md ← 技术栈: TypeScript + commander + vitest
+    - memory/implementer.md ← 踩坑: blessed TUI 需要特殊的 CI 配置
+    - memory/tester.md ← 模式: 环境变量相关测试需 setup 文件
     
     已移至 dev-crew/archive/
     ✅ 归档完成。
@@ -294,7 +312,7 @@ AI: 📦 归档 3 个已完成变更:
 
 | 时间点 | dev-crew/ 下新增/变化的文件 |
 |--------|---------------------------|
-| init skill | `resume.md`, `blockers.md` |
+| init skill | `resume.md`, `blockers.md`, `templates/*.md`, `memory/*.md` |
 | Plan（todo-app-mvp） | `changes/todo-app-mvp/proposal.md` |
 | Design | `changes/todo-app-mvp/design.md` |
 | Execute → Verify → Done | resume.md 更新 |

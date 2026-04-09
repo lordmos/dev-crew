@@ -50,6 +50,13 @@ export default defineConfig({
               { text: '使用场景', link: '/scenarios' },
             ],
           },
+          {
+            text: '最佳实践',
+            items: [
+              { text: '从零构建 Todo App', link: '/examples/01-greenfield-todo-app' },
+              { text: '中途接入已有项目', link: '/examples/02-midway-join-project' },
+            ],
+          },
         ],
       },
     },
@@ -75,6 +82,13 @@ export default defineConfig({
               { text: 'Core Concepts', link: '/en/concepts' },
               { text: 'Specialists', link: '/en/specialists' },
               { text: 'Use Cases', link: '/en/scenarios' },
+            ],
+          },
+          {
+            text: 'Best Practices',
+            items: [
+              { text: 'Greenfield Todo App', link: '/en/examples/01-greenfield-todo-app' },
+              { text: 'Join Existing Project', link: '/en/examples/02-midway-join-project' },
             ],
           },
         ],

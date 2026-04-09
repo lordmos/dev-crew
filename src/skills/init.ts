@@ -16,11 +16,37 @@ function pkgRoot(): string {
   return resolve(__dirname, "..", "..");
 }
 
+function normalizePlatforms(
+  p: Platform | Platform[] | undefined,
+): Platform[] {
+  if (!p) return [];
+  return Array.isArray(p) ? p : [p];
+}
+
+export type Platform = "copilot" | "cursor" | "claude";
+
 export interface InitInput {
   cwd: string;
   name?: string;
+  platform?: Platform | Platform[];
   gitignore?: boolean;
 }
+
+/** Platform-specific instruction file paths */
+const PLATFORM_PATHS: Record<Platform, { path: string; label: string }> = {
+  copilot: {
+    path: ".github/copilot-instructions.md",
+    label: "GitHub Copilot",
+  },
+  cursor: {
+    path: ".cursorrules",
+    label: "Cursor",
+  },
+  claude: {
+    path: "CLAUDE.md",
+    label: "Claude Code",
+  },
+};
 
 export function init(input: InitInput): SkillResult {
   const cwd = input.cwd;
@@ -37,14 +63,32 @@ export function init(input: InitInput): SkillResult {
     details.push("创建 dev-crew/");
   }
 
-  // 2. INSTRUCTIONS.md
+  // 2. INSTRUCTIONS.md (canonical source)
+  const instrSrc = join(pkgRoot(), "templates", "INSTRUCTIONS.md");
+  const instrContent = readFileSync(instrSrc, "utf-8");
   const instrDest = join(cwd, "INSTRUCTIONS.md");
   if (existsSync(instrDest)) {
     details.push("INSTRUCTIONS.md 已存在，跳过");
   } else {
-    const instrSrc = join(pkgRoot(), "templates", "INSTRUCTIONS.md");
-    writeFileSync(instrDest, readFileSync(instrSrc, "utf-8"));
+    writeFileSync(instrDest, instrContent);
     details.push("创建 INSTRUCTIONS.md");
+  }
+
+  // 2b. Platform-specific instruction files
+  const platforms = normalizePlatforms(input.platform);
+  for (const p of platforms) {
+    const cfg = PLATFORM_PATHS[p];
+    const dest = join(cwd, cfg.path);
+    const destDir = dirname(dest);
+    if (existsSync(dest)) {
+      details.push(`${cfg.path} 已存在，跳过 (${cfg.label})`);
+    } else {
+      if (!existsSync(destDir)) {
+        mkdirSync(destDir, { recursive: true });
+      }
+      writeFileSync(dest, instrContent);
+      details.push(`创建 ${cfg.path} (${cfg.label})`);
+    }
   }
 
   // 3. dev-crew.yaml
@@ -56,12 +100,71 @@ export function init(input: InitInput): SkillResult {
     details.push("创建 dev-crew.yaml");
   }
 
-  // 4. specs/ and memory/
-  for (const sub of ["specs", "memory"]) {
+  // 4. specs/, memory/, and templates/
+  for (const sub of ["specs", "memory", "templates"]) {
     const dir = join(crewDir, sub);
     if (!existsSync(dir)) {
       mkdirSync(dir, { recursive: true });
       details.push(`创建 dev-crew/${sub}/`);
+    }
+  }
+
+  // 4a. Copy doc-format templates
+  const docFormatsSrc = join(pkgRoot(), "templates", "doc-formats");
+  const templatesDir = join(crewDir, "templates");
+  if (existsSync(docFormatsSrc)) {
+    for (const file of [
+      "proposal.md",
+      "design.md",
+      "impl-log.md",
+      "test-report.md",
+      "review-report.md",
+    ]) {
+      const dest = join(templatesDir, file);
+      if (!existsSync(dest)) {
+        const src = join(docFormatsSrc, file);
+        if (existsSync(src)) {
+          writeFileSync(dest, readFileSync(src, "utf-8"));
+          details.push(`创建 templates/${file}`);
+        }
+      }
+    }
+  }
+
+  // 4b. Initialize per-agent memory files
+  const memoryDir = join(crewDir, "memory");
+  const agentMemoryFiles: Record<string, string> = {
+    "pdm.md": "产品经理",
+    "architect.md": "架构师",
+    "implementer.md": "开发",
+    "tester.md": "测试",
+    "reviewer.md": "审查",
+  };
+  const now = new Date().toISOString();
+  for (const [file, label] of Object.entries(agentMemoryFiles)) {
+    const memPath = join(memoryDir, file);
+    if (!existsSync(memPath)) {
+      writeFileSync(
+        memPath,
+        `---
+agent: ${label}
+last_updated: ${now}
+changes_completed: 0
+---
+## 项目认知
+
+（随变更积累更新）
+
+## 经验库
+
+（从历史变更中提炼的模式、规则、教训）
+
+## 工作偏好
+
+（用户偏好、团队约定、特殊规则）
+`,
+      );
+      details.push(`创建 memory/${file}`);
     }
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@lordmos/dev-crew",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "AI-powered dev team orchestration framework — Skills + CLI + MCP Server",
   "keywords": [
     "ai",

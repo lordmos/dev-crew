@@ -39,12 +39,19 @@
 ```bash
 npm install -g @lordmos/dev-crew
 cd your-project
-crew init
+crew init --platform copilot   # 或 cursor / claude
 ```
 
-三步完成——你的项目现在拥有一个**开箱即用的 6 人 AI 开发团队** + **29 位可选领域专家**，全部自动编排。
+三步完成——INSTRUCTIONS.md 自动放到你的 AI 平台读取的位置，AI 立刻获得多 Agent 团队编排能力。
 
-适用于 **GitHub Copilot · Claude · ChatGPT · Cursor** 及任何 AI 平台。
+| 平台 | 命令 | 指令文件位置 |
+|------|------|-------------|
+| **GitHub Copilot** | `crew init -p copilot` | `.github/copilot-instructions.md` |
+| **Cursor** | `crew init -p cursor` | `.cursorrules` |
+| **Claude Code** | `crew init -p claude` | `CLAUDE.md` |
+| **通用** | `crew init` | `INSTRUCTIONS.md`（手动引用） |
+
+> 可同时指定多个平台：`crew init -p copilot cursor`
 
 ---
 
@@ -150,13 +157,14 @@ crew agents  # 查看所有可用专家
 
 | Skill | CLI | MCP Tool | 用途 |
 |-------|-----|----------|------|
-| **init** | `crew init` | `crew_init` | 初始化工作区 |
+| **init** | `crew init` | `crew_init` | 初始化工作区 + Agent 记忆文件 |
 | **plan** | `crew plan <名称>` | `crew_plan` | 创建变更并开始工作 |
 | **status** | `crew status` | `crew_status` | 查看当前进度 |
-| **release** | `crew release` | `crew_release` | 归档已完成变更 |
+| **checkpoint** | `crew checkpoint` | `crew_checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
+| **release** | `crew release` | `crew_release` | 归档变更 + 记忆整合 |
 | **agents** | `crew agents` | `crew_agents` | 列出可用领域专家 |
 
-> 自然语言同样有效——"帮我看看进度"，AI 自动调用 status skill
+> 自然语言同样有效——"做个检查点"，AI 自动调用 checkpoint skill
 
 ---
 
