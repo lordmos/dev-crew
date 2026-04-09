@@ -7,7 +7,7 @@ DevCrew 内建 6 个核心角色（PjM/PdM/Architect/Implementer/Tester/Reviewer
 ## 使用方式
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer      # 按需激活
   - ui-designer

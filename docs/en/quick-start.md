@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install -g @lordmos/devcrew
+npm install -g @lordmos/dev-crew
 ```
 
 > Requires Node.js 18+
@@ -20,8 +20,8 @@ crew init
 ```
 your-project/
 ├── INSTRUCTIONS.md    ← AI behavior instructions (core file)
-├── devcrew.yaml       ← Project configuration
-└── devcrew/
+├── dev-crew.yaml       ← Project configuration
+└── dev-crew/
     └── specs/         ← Shared specifications
 ```
 
@@ -55,7 +55,7 @@ You only confirm twice (requirements + results). Everything else is automatic.
 crew agents
 ```
 
-Activate in `devcrew.yaml`:
+Activate in `dev-crew.yaml`:
 
 ```yaml
 specialists:

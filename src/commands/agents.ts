@@ -52,7 +52,7 @@ export async function agentsCommand(): Promise<void> {
     console.log();
   }
 
-  console.log(`激活方式：在 devcrew.yaml 中添加 specialists 列表`);
+  console.log(`激活方式：在 dev-crew.yaml 中添加 specialists 列表`);
   console.log(`  specialists:`);
   console.log(`    - ${files[0]?.replace(".md", "") ?? "agent-name"}`);
   console.log();

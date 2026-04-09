@@ -1,6 +1,6 @@
 {
   "name": "@lordmos/dev-crew",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AI-powered dev team orchestration framework — out-of-the-box CLI + Agent Skill",
   "keywords": [
     "ai",

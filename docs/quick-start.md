@@ -3,7 +3,7 @@
 ## 安装
 
 ```bash
-npm install -g @lordmos/devcrew
+npm install -g @lordmos/dev-crew
 ```
 
 > 需要 Node.js 18+
@@ -20,8 +20,8 @@ crew init
 ```
 your-project/
 ├── INSTRUCTIONS.md    ← AI 行为指令（核心文件）
-├── devcrew.yaml       ← 项目配置
-└── devcrew/
+├── dev-crew.yaml       ← 项目配置
+└── dev-crew/
     └── specs/         ← 共享规约
 ```
 
@@ -55,7 +55,7 @@ AI: ✅ 变更 add-api-auth 完成。
 crew agents
 ```
 
-在 `devcrew.yaml` 中按需激活：
+在 `dev-crew.yaml` 中按需激活：
 
 ```yaml
 specialists:

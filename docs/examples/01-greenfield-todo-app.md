@@ -17,15 +17,15 @@ AI 创建了这些文件：
 
 ```
 project-root/
-├── devcrew.yaml
-├── .gitignore            ← 追加了 devcrew/ 排除规则
-└── devcrew/
+├── dev-crew.yaml
+├── .gitignore            ← 追加了 dev-crew/ 排除规则
+└── dev-crew/
     ├── resume.md
     ├── blockers.md
     └── changes/
 ```
 
-**devcrew.yaml**:
+**dev-crew.yaml**:
 ```yaml
 project:
   name: todo-app
@@ -36,7 +36,7 @@ workflow:
 verify:
   test_command: ""
 git:
-  ignore_devcrew: true
+  ignore_dev_crew: true
 ```
 
 ### Step 2 — Plan 阶段
@@ -45,7 +45,7 @@ git:
 小明: 做一个 Todo 应用，支持创建、完成、删除任务，可以按标签分类
 ```
 
-AI 创建了 `devcrew/changes/todo-app-mvp/proposal.md`：
+AI 创建了 `dev-crew/changes/todo-app-mvp/proposal.md`：
 
 ```yaml
 ---
@@ -84,7 +84,7 @@ AI 更新 `proposal.md` frontmatter: `plan_confirmed: true`
 
 ### Step 3 — Design 阶段
 
-AI 创建了 `devcrew/changes/todo-app-mvp/design.md`：
+AI 创建了 `dev-crew/changes/todo-app-mvp/design.md`：
 
 ```markdown
 # 方案: todo-app-mvp
@@ -173,7 +173,7 @@ AI 自动推断 Express 模式（检测到 bug 修复任务）。
 
 ### Express 流程: Plan → Execute → Verify
 
-AI 创建了 `devcrew/changes/fix-tag-filter/proposal.md`：
+AI 创建了 `dev-crew/changes/fix-tag-filter/proposal.md`：
 
 ```yaml
 ---
@@ -232,7 +232,7 @@ AI 自动推断 Prototype 模式（检测到"原型"关键词）。
 ### Prototype 流程: Plan → Design → Execute（无 Verify）
 
 ```yaml
-# devcrew/changes/poc-tui/proposal.md frontmatter
+# dev-crew/changes/poc-tui/proposal.md frontmatter
 ---
 mode: prototype
 upgraded_from: ""
@@ -284,7 +284,7 @@ AI: 📦 归档 3 个已完成变更:
     - fix-tag-filter (Express)
     - poc-tui (Prototype → Standard)
     
-    已移至 devcrew/archive/
+    已移至 dev-crew/archive/
     ✅ 归档完成。
 ```
 
@@ -292,7 +292,7 @@ AI: 📦 归档 3 个已完成变更:
 
 ## 整个过程文件变化总结
 
-| 时间点 | devcrew/ 下新增/变化的文件 |
+| 时间点 | dev-crew/ 下新增/变化的文件 |
 |--------|---------------------------|
 | /crew:init | `resume.md`, `blockers.md` |
 | Plan（todo-app-mvp） | `changes/todo-app-mvp/proposal.md` |

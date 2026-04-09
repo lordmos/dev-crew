@@ -56,7 +56,7 @@
 ## 如何激活
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer
   - security-engineer

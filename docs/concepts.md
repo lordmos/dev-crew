@@ -28,8 +28,8 @@ flowchart LR
 DevCrew 使用文件系统作为持久化记忆：
 
 - `INSTRUCTIONS.md` — AI 的行为指令
-- `devcrew.yaml` — 项目配置
-- `devcrew/specs/` — 共享规约
+- `dev-crew.yaml` — 项目配置
+- `dev-crew/specs/` — 共享规约
 
 换窗口、换对话，AI 读取这些文件就能恢复上下文。
 

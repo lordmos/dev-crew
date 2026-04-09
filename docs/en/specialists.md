@@ -56,7 +56,7 @@ Beyond the core team, **29 domain specialists** across 10 fields, activated on d
 ## How to Activate
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer
   - security-engineer

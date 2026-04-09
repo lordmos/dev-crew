@@ -37,10 +37,10 @@ AI: 🔍 扫描完成，项目概况:
     - src/utils/helpers.js 有 400+ 行（可能需要拆分）
     - 部分路由缺少错误处理中间件
 
-    ✅ 已创建 devcrew/ 工作区。
+    ✅ 已创建 dev-crew/ 工作区。
 ```
 
-**devcrew.yaml**:
+**dev-crew.yaml**:
 ```yaml
 project:
   name: express-api
@@ -244,7 +244,7 @@ AI: 📖 从 resume.md 恢复:
 AI: 📦 归档 2 个已完成变更:
     - fix-jwt-secret (Express)
     - refactor-utils (Standard)
-    已移至 devcrew/archive/
+    已移至 dev-crew/archive/
     ✅ 归档完成。
 ```
 

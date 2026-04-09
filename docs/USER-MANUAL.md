@@ -48,7 +48,7 @@
 
 ```
 你: /crew:init
-AI: ✅ 已创建 devcrew/ 工作区。你想做什么项目？
+AI: ✅ 已创建 dev-crew/ 工作区。你想做什么项目？
 
 你: 做一个 Todo 应用，支持增删改查和标签分类
 AI: 📋 好的，我来梳理需求。以下是我的理解：
@@ -310,12 +310,12 @@ AI: ✅ 已取消。相关文件已清理，resume.md 已更新。
 
 ## 文件结构一览
 
-AI 会在你的项目中创建以下文件（都在 `devcrew/` 目录下，默认 .gitignore 排除）：
+AI 会在你的项目中创建以下文件（都在 `dev-crew/` 目录下，默认 .gitignore 排除）：
 
 ```
 project-root/
-├── devcrew.yaml                    ← 项目配置（会入库）
-└── devcrew/                        ← AI 工作区（不入库）
+├── dev-crew.yaml                    ← 项目配置（会入库）
+└── dev-crew/                        ← AI 工作区（不入库）
     ├── resume.md                     ← 项目状态快照
     ├── blockers.md                   ← 问题和决策记录
     ├── changes/
@@ -331,7 +331,7 @@ project-root/
 
 ## 配置（可选）
 
-项目根目录的 `devcrew.yaml`：
+项目根目录的 `dev-crew.yaml`：
 
 ```yaml
 project:
@@ -348,7 +348,7 @@ verify:
 如果项目涉及特定领域，可以激活预置的领域专家——AI 会在 PDEVI 的对应阶段自动调度专家提供领域知识：
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer        # 游戏设计师：GDD、游戏循环、经济平衡
   - security-engineer    # 安全工程师：威胁建模、OWASP、安全审查

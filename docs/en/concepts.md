@@ -28,8 +28,8 @@ flowchart LR
 DevCrew uses the file system as persistent memory:
 
 - `INSTRUCTIONS.md` — AI behavior instructions
-- `devcrew.yaml` — Project configuration
-- `devcrew/specs/` — Shared specifications
+- `dev-crew.yaml` — Project configuration
+- `dev-crew/specs/` — Shared specifications
 
 Switch windows or conversations — AI reads these files to restore context.
 

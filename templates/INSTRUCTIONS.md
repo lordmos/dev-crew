@@ -17,20 +17,20 @@
 
 ## 领域专家（可选）
 
-若 `devcrew.yaml` 配置了 `specialists`，PjM 在初始化时加载对应的专家 prompt 文件（`agents/*.md`）。专家在 PDEVI 对应阶段自动参与——补充领域知识到 proposal.md / design.md / 验证标准中。**不替代核心团队，不创建独立文件。** 未配置时核心团队独立工作，零影响。
+若 `dev-crew.yaml` 配置了 `specialists`，PjM 在初始化时加载对应的专家 prompt 文件（`agents/*.md`）。专家在 PDEVI 对应阶段自动参与——补充领域知识到 proposal.md / design.md / 验证标准中。**不替代核心团队，不创建独立文件。** 未配置时核心团队独立工作，零影响。
 
 ## 指令
 
 ### `/crew:init [--prd <file>] [--scan]`
 
-创建 `devcrew/` 目录 + `devcrew.yaml` + `resume.md` + `blockers.md`，追加 `.gitignore` 排除 `devcrew/`。
+创建 `dev-crew/` 目录 + `dev-crew.yaml` + `resume.md` + `blockers.md`，追加 `.gitignore` 排除 `dev-crew/`。
 - `--prd <file>`: 导入已有需求文档，提炼为 proposal
 - `--scan`: 扫描代码库建立基线
 - **幂等**: 已存在则补全缺失文件，不覆盖，报告当前状态
 
 ### `/crew:plan <name> [--express|--prototype]`
 
-创建变更 `devcrew/changes/{name}/proposal.md`，进入 Plan 阶段。若未初始化自动执行 init。名称冲突时提示恢复或重命名。未指定 name 时从描述自动生成 kebab-case 名称。
+创建变更 `dev-crew/changes/{name}/proposal.md`，进入 Plan 阶段。若未初始化自动执行 init。名称冲突时提示恢复或重命名。未指定 name 时从描述自动生成 kebab-case 名称。
 
 **模式推断**（AI 自动推断，告知用户，用户可覆盖）:
 
@@ -52,7 +52,7 @@
 
 ### `/crew:release`
 
-将已完成变更目录移至 `devcrew/archive/`，更新 resume.md。有未完成变更或 OPEN blocker 时**警告但不阻断**。无已完成变更时提示不执行。
+将已完成变更目录移至 `dev-crew/archive/`，更新 resume.md。有未完成变更或 OPEN blocker 时**警告但不阻断**。无已完成变更时提示不执行。
 
 > 用户也可用自然语言触发同等行为（如"帮我看看进度" ≈ `/crew:status`）。
 
@@ -80,7 +80,7 @@
 
 ### 验证策略（Verify 阶段）
 
-1. 若 `devcrew.yaml` 配置了 `verify.test_command` → 执行命令并解析退出码
+1. 若 `dev-crew.yaml` 配置了 `verify.test_command` → 执行命令并解析退出码
 2. 若无 → AI 基于验收标准逐项检查，在 resume.md 记录判断依据
 3. 完成后展示结果摘要，**等待用户确认**（硬性阶段门）
 
@@ -106,8 +106,8 @@ AI 根据问题性质判断回退目标，在 resume.md 记录理由：
 
 ```
 project-root/
-├── devcrew.yaml              ← 项目配置（入库）
-└── devcrew/                  ← 工作区（.gitignore 排除）
+├── dev-crew.yaml              ← 项目配置（入库）
+└── dev-crew/                  ← 工作区（.gitignore 排除）
     ├── resume.md               ← 状态快照（AI 维护）
     ├── blockers.md             ← 问题与决策
     ├── changes/{name}/
@@ -137,9 +137,9 @@ YAML frontmatter（**source of truth**）: `active_changes` 数组，每项含 `
 格式: `## [STATUS] #N {标题}` + `**关联**: {变更名}` + `**问题**: {描述}`。
 状态: `[OPEN]` / `[RESOLVED]` / `[CANCELLED]`。编号自增。已解决决策回写到关联文档。
 
-### devcrew.yaml（项目配置）
+### dev-crew.yaml（项目配置）
 
-字段: `project.name`（必填）、`project.description`、`workflow.default_mode`（默认 standard）、`workflow.concurrent_changes`（默认 true）、`verify.test_command`（空=AI 审查）、`git.ignore_devcrew`（默认 true）、`specialists`（可选，字符串数组，激活领域专家）。
+字段: `project.name`（必填）、`project.description`、`workflow.default_mode`（默认 standard）、`workflow.concurrent_changes`（默认 true）、`verify.test_command`（空=AI 审查）、`git.ignore_dev_crew`（默认 true）、`specialists`（可选，字符串数组，激活领域专家）。
 
 ## 通信规则
 
@@ -159,7 +159,7 @@ YAML frontmatter（**source of truth**）: `active_changes` 数组，每项含 `
 
 ## 会话恢复
 
-**新会话启动时**: ① 检测 `devcrew/` 是否存在 → ② 读 resume.md YAML frontmatter 恢复状态 → ③ 读 blockers.md 检查用户决策 → ④ 继续中断的工作。
+**新会话启动时**: ① 检测 `dev-crew/` 是否存在 → ② 读 resume.md YAML frontmatter 恢复状态 → ③ 读 blockers.md 检查用户决策 → ④ 继续中断的工作。
 
 **兜底恢复**（resume.md 缺失）: proposal.md 存在→至少完成 Plan；design.md 存在→至少完成 Design；有 git diff→已进入 Execute；模式从 proposal.md frontmatter 恢复。⚠️ 安全阀计数器重置为 0。
 

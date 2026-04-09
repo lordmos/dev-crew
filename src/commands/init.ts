@@ -22,13 +22,13 @@ export async function initCommand(options: InitOptions): Promise<void> {
 
   console.log(`\n🚀 DevCrew 初始化: ${projectName}\n`);
 
-  // 1. Create devcrew/ directory
-  const crewDir = join(cwd, "devcrew");
+  // 1. Create dev-crew/ directory
+  const crewDir = join(cwd, "dev-crew");
   if (existsSync(crewDir)) {
-    console.log("⚠️  devcrew/ 已存在，跳过目录创建");
+    console.log("⚠️  dev-crew/ 已存在，跳过目录创建");
   } else {
     mkdirSync(crewDir, { recursive: true });
-    console.log("📁 创建 devcrew/");
+    console.log("📁 创建 dev-crew/");
   }
 
   // 2. Copy INSTRUCTIONS.md to project root
@@ -42,21 +42,21 @@ export async function initCommand(options: InitOptions): Promise<void> {
     console.log("📄 创建 INSTRUCTIONS.md（AI 行为指令）");
   }
 
-  // 3. Generate devcrew.yaml at project root
-  const yamlDest = join(cwd, "devcrew.yaml");
+  // 3. Generate dev-crew.yaml at project root
+  const yamlDest = join(cwd, "dev-crew.yaml");
   if (existsSync(yamlDest)) {
-    console.log("⚠️  devcrew.yaml 已存在，跳过");
+    console.log("⚠️  dev-crew.yaml 已存在，跳过");
   } else {
     const yamlContent = generateYaml(projectName);
     writeFileSync(yamlDest, yamlContent);
-    console.log("⚙️  创建 devcrew.yaml（项目配置）");
+    console.log("⚙️  创建 dev-crew.yaml（项目配置）");
   }
 
   // 4. Create specs/ directory
   const specsDir = join(crewDir, "specs");
   if (!existsSync(specsDir)) {
     mkdirSync(specsDir, { recursive: true });
-    console.log("📁 创建 devcrew/specs/");
+    console.log("📁 创建 dev-crew/specs/");
   }
 
   // 5. Add .gitignore rules
@@ -70,8 +70,8 @@ export async function initCommand(options: InitOptions): Promise<void> {
 
 📂 项目结构:
    INSTRUCTIONS.md          ← AI 行为指令（核心文件）
-   devcrew.yaml             ← 项目配置（入库）
-   devcrew/
+   dev-crew.yaml            ← 项目配置（入库）
+   dev-crew/
    └── specs/               ← 共享规约（入库）
 
 🎬 下一步:
@@ -95,7 +95,7 @@ function inferProjectName(dir: string): string {
 
 function generateYaml(projectName: string): string {
   return `# DevCrew 项目配置
-# 文档: https://github.com/user/devcrew
+# 文档: https://github.com/lordmos/dev-crew
 
 project:
   name: "${projectName}"
@@ -109,7 +109,7 @@ verify:
   test_command: ""            # 为空时 AI 基于验收标准审查
 
 git:
-  ignore_devcrew: true      # devcrew/ 不入库（推荐）
+  ignore_dev_crew: true      # dev-crew/ 不入库（推荐）
 
 specialists: []               # 按需激活领域专家，运行 crew agents 查看可用列表
                               # 示例: [game-designer, security-engineer]
@@ -121,8 +121,8 @@ function appendGitignore(dir: string): void {
   const marker = "# DevCrew";
   const rules = `
 ${marker}
-devcrew/
-!devcrew/specs/
+dev-crew/
+!dev-crew/specs/
 `;
 
   if (existsSync(gitignorePath)) {

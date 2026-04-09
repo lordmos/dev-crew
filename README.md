@@ -9,7 +9,7 @@
 
   *帮你做好 harness！*
 
-  [![npm version](https://img.shields.io/npm/v/@lordmos/devcrew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/devcrew)
+  [![npm version](https://img.shields.io/npm/v/@lordmos/dev-crew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/dev-crew)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
   [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-CDFE00.svg?style=flat-square)](https://github.com/lordmos/dev-crew/pulls)
@@ -37,7 +37,7 @@
 ## 30 秒上手
 
 ```bash
-npm install -g @lordmos/devcrew
+npm install -g @lordmos/dev-crew
 cd your-project
 crew init
 ```
@@ -77,8 +77,8 @@ AI: ✅ 变更 add-api-auth 完成。
 ```
 your-project/
 ├── INSTRUCTIONS.md    ← AI 行为指令（核心文件）
-├── devcrew.yaml       ← 项目配置（模式、专家选择）
-└── devcrew/
+├── dev-crew.yaml      ← 项目配置（模式、专家选择）
+└── dev-crew/
     └── specs/         ← 共享规约
 ```
 
@@ -129,7 +129,7 @@ flowchart LR
 > 🎮 游戏开发（8）· 🎨 UI/UX（3）· 🔒 安全（1）· ⚙️ DevOps（3）· 🧪 测试（3）· 💻 工程（5）· 📊 数据（2）· 🤖 AI/ML（1）· 🌐 Web3（1）· 🥽 空间计算（2）
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer
   - security-engineer

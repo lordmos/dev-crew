@@ -9,7 +9,7 @@
 
   *帮你做好 harness！*
 
-  [![npm version](https://img.shields.io/npm/v/@lordmos/devcrew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/devcrew)
+  [![npm version](https://img.shields.io/npm/v/@lordmos/dev-crew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/dev-crew)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
   [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-CDFE00.svg?style=flat-square)](https://github.com/lordmos/dev-crew/pulls)
@@ -37,7 +37,7 @@ When using AI (Copilot, Claude, Cursor…) for development:
 ## Get Started in 30 Seconds
 
 ```bash
-npm install -g @lordmos/devcrew
+npm install -g @lordmos/dev-crew
 cd your-project
 crew init
 ```
@@ -77,8 +77,8 @@ AI:  ✅ Change add-api-auth complete.
 ```
 your-project/
 ├── INSTRUCTIONS.md    ← AI behavior instructions (core file)
-├── devcrew.yaml       ← Project config (modes, specialists)
-└── devcrew/
+├── dev-crew.yaml       ← Project config (modes, specialists)
+└── dev-crew/
     └── specs/         ← Shared specifications
 ```
 
@@ -129,7 +129,7 @@ Beyond the core team, **29 domain specialists** across 10 fields, activated on d
 > 🎮 Game Dev (8) · 🎨 UI/UX (3) · 🔒 Security (1) · ⚙️ DevOps (3) · 🧪 Testing (3) · 💻 Engineering (5) · 📊 Data (2) · 🤖 AI/ML (1) · 🌐 Web3 (1) · 🥽 Spatial Computing (2)
 
 ```yaml
-# devcrew.yaml
+# dev-crew.yaml
 specialists:
   - game-designer
   - security-engineer
