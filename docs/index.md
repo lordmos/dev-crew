@@ -5,7 +5,7 @@ titleTemplate: ':title'
 hero:
   name: DevCrew
   text: AI 团队协作协议
-  tagline: 给 AI 一套协作协议，让它像真正的团队一样工作。
+  tagline: 给 AI 一套协作协议，让它像真正的团队一样工作。帮你做好 harness！
   image:
     src: /logo.svg
     alt: DevCrew

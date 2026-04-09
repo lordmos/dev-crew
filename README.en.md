@@ -7,7 +7,9 @@
 
   **Give AI a collaboration protocol. Let it work like a real team.**
 
-  [![npm version](https://img.shields.io/npm/v/devcrew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/devcrew)
+  *帮你做好 harness！*
+
+  [![npm version](https://img.shields.io/npm/v/@lordmos/devcrew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/devcrew)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
   [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-CDFE00.svg?style=flat-square)](https://github.com/lordmos/devcrew/pulls)
@@ -35,7 +37,7 @@ When using AI (Copilot, Claude, Cursor…) for development:
 ## Get Started in 30 Seconds
 
 ```bash
-npm install -g devcrew
+npm install -g @lordmos/devcrew
 cd your-project
 crew init
 ```

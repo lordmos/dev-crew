@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install -g devcrew
+npm install -g @lordmos/devcrew
 ```
 
 > Requires Node.js 18+
