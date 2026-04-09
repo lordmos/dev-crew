@@ -18,22 +18,22 @@ hero:
       link: https://github.com/lordmos/dev-crew
 
 features:
-  - icon: 🤖
+  - icon: <i class="fas fa-robot"></i>
     title: 6 人内建团队
     details: 项目经理、产品经理、架构师、开发、测试、审查——角色自动切换，无需手动分配。
-  - icon: 🔄
+  - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI 工作流
     details: Plan → Design → Execute → Verify → Iterate，三种模式覆盖所有开发场景。
-  - icon: 🧩
+  - icon: <i class="fas fa-puzzle-piece"></i>
     title: 29 位领域专家
     details: 游戏开发、安全、DevOps、AI/ML 等 10 个领域，按需激活。
-  - icon: 🌐
+  - icon: <i class="fas fa-globe"></i>
     title: 跨平台兼容
     details: 适用于 GitHub Copilot、Claude、ChatGPT、Cursor 等任何 AI 平台。
-  - icon: 📁
+  - icon: <i class="fas fa-folder-open"></i>
     title: 文件即记忆
     details: 基于文件系统的持久化协作协议，换窗口也不丢失上下文。
-  - icon: ⚡
+  - icon: <i class="fas fa-bolt"></i>
     title: 开箱即用
     details: 一条命令初始化，AI 自动读取协议并建立团队。
 ---

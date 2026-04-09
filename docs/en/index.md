@@ -18,22 +18,22 @@ hero:
       link: https://github.com/lordmos/dev-crew
 
 features:
-  - icon: 🤖
+  - icon: <i class="fas fa-robot"></i>
     title: 6-Person Built-in Team
     details: Project Manager, Product Manager, Architect, Developer, Tester, Reviewer — roles switch automatically.
-  - icon: 🔄
+  - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI Workflow
     details: Plan → Design → Execute → Verify → Iterate. Three modes for every development scenario.
-  - icon: 🧩
+  - icon: <i class="fas fa-puzzle-piece"></i>
     title: 29 Domain Specialists
     details: Game dev, security, DevOps, AI/ML and more — 10 domains, activated on demand.
-  - icon: 🌐
+  - icon: <i class="fas fa-globe"></i>
     title: Cross-Platform
     details: Works with GitHub Copilot, Claude, ChatGPT, Cursor, and any AI platform.
-  - icon: 📁
+  - icon: <i class="fas fa-folder-open"></i>
     title: Files as Memory
     details: File-system-based persistent collaboration protocol. Context survives across sessions.
-  - icon: ⚡
+  - icon: <i class="fas fa-bolt"></i>
     title: Ready Out of the Box
     details: One command to initialize. AI reads the protocol and assembles the team automatically.
 ---

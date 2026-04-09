@@ -4,7 +4,7 @@ Beyond the core team, **29 domain specialists** across 10 fields, activated on d
 
 ## By Domain
 
-### 🎮 Game Development (8)
+### <i class="fas fa-gamepad"></i> Game Development (8)
 - Game Designer
 - Level Designer
 - Narrative Designer
@@ -14,42 +14,42 @@ Beyond the core team, **29 domain specialists** across 10 fields, activated on d
 - Unreal Specialist
 - Godot Specialist
 
-### 🎨 UI/UX (3)
+### <i class="fas fa-palette"></i> UI/UX (3)
 - UI Designer
 - UX Architect
 - UX Researcher
 
-### 🔒 Security (1)
+### <i class="fas fa-shield-halved"></i> Security (1)
 - Security Engineer
 
-### ⚙️ DevOps (3)
+### <i class="fas fa-gears"></i> DevOps (3)
 - DevOps Engineer
 - SRE (Site Reliability Engineer)
 - Incident Response Commander
 
-### 🧪 Testing (3)
+### <i class="fas fa-vial"></i> Testing (3)
 - API Tester
 - Performance Engineer
 - Accessibility Auditor
 
-### 💻 Engineering (5)
+### <i class="fas fa-code"></i> Engineering (5)
 - Frontend Specialist
 - Backend Architect
 - Mobile Developer
 - Embedded Engineer
 - Technical Writer
 
-### 📊 Data (2)
+### <i class="fas fa-chart-bar"></i> Data (2)
 - Data Engineer
 - Database Specialist
 
-### 🤖 AI/ML (1)
+### <i class="fas fa-robot"></i> AI/ML (1)
 - AI Engineer
 
-### 🌐 Web3 (1)
+### <i class="fas fa-globe"></i> Web3 (1)
 - Solidity Engineer
 
-### 🥽 Spatial Computing (2)
+### <i class="fas fa-vr-cardboard"></i> Spatial Computing (2)
 - VisionOS Engineer
 - XR Developer
 

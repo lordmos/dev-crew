@@ -24,11 +24,11 @@
 
 | 角色 | 职责 |
 |------|------|
-| 🎯 **PjM** 项目经理 | 调度编排、模式推断、阶段推进 |
-| 📋 **PdM** 产品经理 | 需求梳理、PRD 导入、验收标准 |
-| 🏗️ **Architect** 架构师 | 技术选型、任务分解、依赖分析 |
-| 💻 **Implementer** 开发 | 代码生成、重构、依赖安装 |
-| 🧪 **Tester** 测试 | 测试执行、验收检查、覆盖率 |
-| 👀 **Reviewer** 审查 | 规范检查、安全扫描、最佳实践 |
+| <i class="fas fa-bullseye"></i> **PjM** 项目经理 | 调度编排、模式推断、阶段推进 |
+| <i class="fas fa-clipboard-list"></i> **PdM** 产品经理 | 需求梳理、PRD 导入、验收标准 |
+| <i class="fas fa-drafting-compass"></i> **Architect** 架构师 | 技术选型、任务分解、依赖分析 |
+| <i class="fas fa-code"></i> **Implementer** 开发 | 代码生成、重构、依赖安装 |
+| <i class="fas fa-vial"></i> **Tester** 测试 | 测试执行、验收检查、覆盖率 |
+| <i class="fas fa-magnifying-glass"></i> **Reviewer** 审查 | 规范检查、安全扫描、最佳实践 |
 
 角色切换完全自动，无需手动分配。

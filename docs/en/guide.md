@@ -24,11 +24,11 @@
 
 | Role | Responsibility |
 |------|---------------|
-| 🎯 **PjM** Project Manager | Orchestration, mode inference, stage transitions |
-| 📋 **PdM** Product Manager | Requirements analysis, PRD import, acceptance criteria |
-| 🏗️ **Architect** | Tech decisions, task decomposition, dependency analysis |
-| 💻 **Implementer** | Code generation, refactoring, dependency management |
-| 🧪 **Tester** | Test execution, acceptance checks, coverage |
-| 👀 **Reviewer** | Code review, security scanning, best practices |
+| <i class="fas fa-bullseye"></i> **PjM** Project Manager | Orchestration, mode inference, stage transitions |
+| <i class="fas fa-clipboard-list"></i> **PdM** Product Manager | Requirements analysis, PRD import, acceptance criteria |
+| <i class="fas fa-drafting-compass"></i> **Architect** | Tech decisions, task decomposition, dependency analysis |
+| <i class="fas fa-code"></i> **Implementer** | Code generation, refactoring, dependency management |
+| <i class="fas fa-vial"></i> **Tester** | Test execution, acceptance checks, coverage |
+| <i class="fas fa-magnifying-glass"></i> **Reviewer** | Code review, security scanning, best practices |
 
 Role switching is fully automatic — no manual assignment needed.

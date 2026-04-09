@@ -48,15 +48,15 @@
 
 ```
 你: /crew:init
-AI: ✅ 已创建 dev-crew/ 工作区。你想做什么项目？
+AI: [OK] 已创建 dev-crew/ 工作区。你想做什么项目？
 
 你: 做一个 Todo 应用，支持增删改查和标签分类
-AI: 📋 好的，我来梳理需求。以下是我的理解：
+AI: [PdM] 好的，我来梳理需求。以下是我的理解：
     [展示 proposal.md 草稿，包含目标、需求和验收标准]
     请确认或修改。
 
 你: 确认
-AI: ✅ 需求已确认。开始技术方案设计...
+AI: [OK] 需求已确认。开始技术方案设计...
     [自动进入 Design → Execute → Verify 流程]
 ```
 
@@ -68,12 +68,12 @@ AI: ✅ 需求已确认。开始技术方案设计...
 
 ```
 你: /crew:init --prd docs/requirements.md
-AI: 📄 已导入需求文档，分析提炼中...
+AI: [Doc] 已导入需求文档，分析提炼中...
     [展示从 PRD 提取的 proposal.md]
     请确认这是否准确反映需求。
 
 你: "用户角色"那段描述太模糊，补充一下：需要管理员和普通用户两种角色
-AI: ✅ 已更新。开始设计...
+AI: [OK] 已更新。开始设计...
 ```
 
 **关键**：导入已有需求 → AI 提炼成 proposal → 你确认/补充 → 自动推进。
@@ -84,7 +84,7 @@ AI: ✅ 已更新。开始设计...
 
 ```
 你: /crew:init --scan
-AI: 🔍 正在扫描项目代码...
+AI: [Scan] 正在扫描项目代码...
     
     项目概况:
     - 语言: TypeScript + React
@@ -95,7 +95,7 @@ AI: 🔍 正在扫描项目代码...
     已创建工作区。你接下来想做什么？
 
 你: 我要给 API 加上认证中间件
-AI: 📋 好的，创建变更 add-api-auth...
+AI: [PdM] 好的，创建变更 add-api-auth...
 ```
 
 **关键**：AI 先扫描代码建立基线，然后你直接描述要做什么。
@@ -125,24 +125,24 @@ AI: 好的。创建变更 migrate-to-zustand，模式: Standard
 
 ```
 你: 用户登录后偶尔报 403，帮我查一下
-AI: 🔍 检测到 bug 修复任务，创建 Express 变更 fix-403-on-login
+AI: [Scan] 检测到 bug 修复任务，创建 Express 变更 fix-403-on-login
     模式: Express（跳过 Design，直接修复）
     
-    📋 Proposal:
+    [PdM] Proposal:
     - 目标: 修复登录后偶发 403 错误
-    - 验收标准: ☐ 连续 10 次登录无 403
+    - 验收标准: [ ] 连续 10 次登录无 403
     请确认。
 
 你: ok
 AI: 开始排查...
-    ✅ 定位问题: src/middleware/auth.ts:42，token 刷新时竞态条件
-    ✅ 已修复 src/middleware/auth.ts（添加 mutex 锁）
-    ✅ 已添加测试 src/middleware/auth.test.ts
+    [OK] 定位问题: src/middleware/auth.ts:42，token 刷新时竞态条件
+    [OK] 已修复 src/middleware/auth.ts（添加 mutex 锁）
+    [OK] 已添加测试 src/middleware/auth.test.ts
     
     验证结果: npm test 全部通过。请确认修复。
 
 你: 确认
-AI: ✅ 变更 fix-403-on-login 完成。
+AI: [OK] 变更 fix-403-on-login 完成。
 ```
 
 **关键**：Express 模式跳过 Design，直接 Plan → Execute → Verify。
@@ -153,11 +153,11 @@ AI: ✅ 变更 fix-403-on-login 完成。
 
 ```
 你: src/utils/ 里的工具函数太乱了，需要重构
-AI: 📋 创建变更 refactor-utils，模式: Standard
+AI: [PdM] 创建变更 refactor-utils，模式: Standard
     
     Plan 阶段:
     - 目标: 重组 utils 目录结构，按功能分模块
-    - 验收标准: ☐ 无破坏性变更 ☐ 所有导入路径更新 ☐ 测试通过
+    - 验收标准: [ ] 无破坏性变更 [ ] 所有导入路径更新 [ ] 测试通过
     请确认。
 
 你: 确认
@@ -185,7 +185,7 @@ AI: Design 阶段:
 
 ```
 你: 试一下用 WebSocket 替代轮询，做个原型看看效果
-AI: 📋 创建变更 poc-websocket，模式: Prototype（跳过 Verify + Iterate）
+AI: [PdM] 创建变更 poc-websocket，模式: Prototype（跳过 Verify + Iterate）
     
     Plan:
     - 目标: 验证 WebSocket 实时推送方案可行性
@@ -198,15 +198,15 @@ AI: Design:
     - 保留原有轮询作为 fallback
     
     Execute:
-    ✅ 已创建 src/ws/server.ts
-    ✅ 已创建 src/ws/client.ts
-    ✅ 已修改 src/components/NotificationBell.tsx
+    [OK] 已创建 src/ws/server.ts
+    [OK] 已创建 src/ws/client.ts
+    [OK] 已修改 src/components/NotificationBell.tsx
     
     原型完成。WebSocket 延迟从 5s 降到 <100ms。
     想正式做吗？
 
 你: 效果不错，正式做吧
-AI: ✅ 升级为 Standard 模式。补充测试策略，进入 Verify...
+AI: [OK] 升级为 Standard 模式。补充测试策略，进入 Verify...
 ```
 
 **关键**：Prototype 跳过 Verify/Iterate，快速验证想法。说"正式做吧"可升级为 Standard。
@@ -217,7 +217,7 @@ AI: ✅ 升级为 Standard 模式。补充测试策略，进入 Verify...
 
 ```
 你: /crew:explore 帮我理解 src/core/pipeline.ts 的设计思路
-AI: 📖 分析 src/core/pipeline.ts:
+AI: [Review] 分析 src/core/pipeline.ts:
     
     这是一个中间件管道模式的实现：
     - Pipeline 类管理一系列 Middleware 函数
@@ -261,7 +261,7 @@ AI: [继续深入解释...]
 AI 会在 `blockers.md` 提问，你可以在对话中直接回答：
 
 ```
-AI: ⚠️ 遇到一个需要你决策的问题:
+AI: [!] 遇到一个需要你决策的问题:
     [OPEN] #3 数据库选型
     关联: add-user-auth
     问题: 用户数据存储选 PostgreSQL 还是 SQLite？
@@ -269,7 +269,7 @@ AI: ⚠️ 遇到一个需要你决策的问题:
     建议: 目前是单人项目，SQLite 足够。后期可迁移。
 
 你: 用 SQLite
-AI: ✅ 已记录决策，继续开发...
+AI: [OK] 已记录决策，继续开发...
 ```
 
 ### 修了好几次还不对
@@ -283,7 +283,7 @@ AI: ✅ 已记录决策，继续开发...
 
 ```
 你: （新会话）继续之前的工作
-AI: 📖 从 resume.md 恢复状态:
+AI: [Review] 从 resume.md 恢复状态:
     - 变更 add-user-auth: Execute 阶段，进度 3/5
     - 待解决: [OPEN] #3 数据库选型
     
@@ -299,9 +299,9 @@ AI: 📖 从 resume.md 恢复状态:
 
 ```
 你: 不做 poc-websocket 了
-AI: ⚠️ 确认放弃变更 poc-websocket？这会删除 proposal.md 和 design.md。
+AI: [!] 确认放弃变更 poc-websocket？这会删除 proposal.md 和 design.md。
 你: 确认
-AI: ✅ 已取消。相关文件已清理，resume.md 已更新。
+AI: [OK] 已取消。相关文件已清理，resume.md 已更新。
 ```
 
 > 用自然语言说"放弃/取消/不做了"即可，不需要专用命令。

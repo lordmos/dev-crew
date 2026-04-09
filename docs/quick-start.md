@@ -32,10 +32,10 @@ your-project/
 ```
 你: 我要给 API 加认证中间件
 
-AI: 📋 创建变更 add-api-auth，模式: Standard
+AI: [PdM] 创建变更 add-api-auth，模式: Standard
     Plan — 需求整理:
     - 目标: 为所有 /api/ 路由添加 JWT 认证
-    - 验收标准: ☐ 未携带 token 返回 401  ☐ 过期 token 返回 401
+    - 验收标准: [ ] 未携带 token 返回 401  [ ] 过期 token 返回 401
     请确认。
 
 你: 确认
@@ -44,7 +44,7 @@ AI: Design → Execute → Verify — 全部通过。请确认验收。
 
 你: 确认
 
-AI: ✅ 变更 add-api-auth 完成。
+AI: [OK] 变更 add-api-auth 完成。
 ```
 
 你只需确认两次（需求 + 结果），其余全部自动。

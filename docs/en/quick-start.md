@@ -32,10 +32,10 @@ Open any AI assistant (Copilot, Claude, Cursor, etc.). The AI automatically read
 ```
 You: I need to add auth middleware to the API
 
-AI:  📋 Creating change add-api-auth, mode: Standard
+AI:  [PdM] Creating change add-api-auth, mode: Standard
      Plan — Requirements:
      - Goal: Add JWT auth to all /api/ routes
-     - Acceptance: ☐ No token → 401  ☐ Expired token → 401
+     - Acceptance: [ ] No token → 401  [ ] Expired token → 401
      Please confirm.
 
 You: Confirmed
@@ -44,7 +44,7 @@ AI:  Design → Execute → Verify — All passed. Please confirm acceptance.
 
 You: Confirmed
 
-AI:  ✅ Change add-api-auth complete.
+AI:  [OK] Change add-api-auth complete.
 ```
 
 You only confirm twice (requirements + results). Everything else is automatic.

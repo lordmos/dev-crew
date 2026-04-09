@@ -24,11 +24,11 @@ When using AI (Copilot, Claude, Cursor…) for development:
 
 | Problem | What happens |
 |---------|-------------|
-| 🧠 **No memory** | Switch conversations, AI forgets everything |
-| 🎭 **No division of labor** | AI plays PM + architect + dev + tester simultaneously |
-| 🎯 **Goes off track** | Drifts from goals with no checkpoints to correct course |
-| 🔍 **Quality blind spots** | No review process — bugs and tech debt accumulate silently |
-| ❓ **No starting point** | Don't know how to orchestrate AI collaboration |
+| **No memory** | Switch conversations, AI forgets everything |
+| **No division of labor** | AI plays PM + architect + dev + tester simultaneously |
+| **Goes off track** | Drifts from goals with no checkpoints to correct course |
+| **Quality blind spots** | No review process — bugs and tech debt accumulate silently |
+| **No starting point** | Don't know how to orchestrate AI collaboration |
 
 **Root cause**: AI lacks a persistent collaboration protocol. DevCrew is that protocol.
 
@@ -53,10 +53,10 @@ Works with **GitHub Copilot · Claude · ChatGPT · Cursor** and any AI platform
 ```
 You: I need to add auth middleware to the API
 
-AI:  📋 Creating change add-api-auth, mode: Standard
+AI:  [PdM] Creating change add-api-auth, mode: Standard
      Plan — Requirements:
      - Goal: Add JWT auth to all /api/ routes
-     - Acceptance: ☐ No token → 401  ☐ Expired token → 401
+     - Acceptance: [ ] No token → 401  [ ] Expired token → 401
      Please confirm.
 
 You: Confirmed
@@ -65,7 +65,7 @@ AI:  Design → Execute → Verify — All passed. Please confirm acceptance.
 
 You: Confirmed
 
-AI:  ✅ Change add-api-auth complete.
+AI:  [OK] Change add-api-auth complete.
 ```
 
 **You only confirmed twice** (requirements + results). Everything else was automatic.
@@ -98,7 +98,7 @@ flowchart LR
     V -->|Fail| I["Iterate"]
     I -->|Design issue| D
     I -->|Implementation issue| E
-    V -->|Pass| Done["✅ Done"]
+    V -->|Pass| Done["[OK] Done"]
 ```
 
 Three modes for every scenario:
@@ -113,12 +113,12 @@ Three modes for every scenario:
 
 | Role | Responsibility |
 |------|---------------|
-| 🎯 **PjM** Project Manager | Orchestration, mode inference, stage transitions |
-| 📋 **PdM** Product Manager | Requirements analysis, PRD import, acceptance criteria |
-| 🏗️ **Architect** | Tech decisions, task decomposition, dependency analysis |
-| 💻 **Implementer** | Code generation, refactoring, dependency management |
-| 🧪 **Tester** | Test execution, acceptance checks, coverage |
-| 👀 **Reviewer** | Code review, security scanning, best practices |
+| **PjM** Project Manager | Orchestration, mode inference, stage transitions |
+| **PdM** Product Manager | Requirements analysis, PRD import, acceptance criteria |
+| **Architect** | Tech decisions, task decomposition, dependency analysis |
+| **Implementer** | Code generation, refactoring, dependency management |
+| **Tester** | Test execution, acceptance checks, coverage |
+| **Reviewer** | Code review, security scanning, best practices |
 
 Role switching is fully automatic — no manual assignment needed.
 
@@ -126,7 +126,7 @@ Role switching is fully automatic — no manual assignment needed.
 
 Beyond the core team, **29 domain specialists** across 10 fields, activated on demand:
 
-> 🎮 Game Dev (8) · 🎨 UI/UX (3) · 🔒 Security (1) · ⚙️ DevOps (3) · 🧪 Testing (3) · 💻 Engineering (5) · 📊 Data (2) · 🤖 AI/ML (1) · 🌐 Web3 (1) · 🥽 Spatial Computing (2)
+> Game Dev (8) · UI/UX (3) · Security (1) · DevOps (3) · Testing (3) · Engineering (5) · Data (2) · AI/ML (1) · Web3 (1) · Spatial Computing (2)
 
 ```yaml
 # dev-crew.yaml

@@ -14,7 +14,7 @@ flowchart LR
     V -->|Fail| I["Iterate"]
     I -->|Design issue| D
     I -->|Implementation issue| E
-    V -->|Pass| Done["✅ Done"]
+    V -->|Pass| Done["[OK] Done"]
 ```
 
 - **Plan** — Gather requirements, define goals and acceptance criteria
