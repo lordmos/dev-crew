@@ -7,7 +7,7 @@ hero:
   text: AI Team Collaboration Protocol
   tagline: Give AI a collaboration protocol. Let it work like a real team. 帮你做好 harness！
   image:
-    src: /logo.svg
+    src: /dev-crew.png
     alt: DevCrew
   actions:
     - theme: brand

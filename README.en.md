@@ -1,7 +1,7 @@
 > **语言 / Language**: [简体中文](README.md) · **English**
 
 <div align="center">
-  <img src="docs/public/logo.svg" alt="DevCrew" width="180" />
+  <img src="docs/public/dev-crew.png" alt="DevCrew" width="180" />
 
   # DevCrew
 

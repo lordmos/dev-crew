@@ -6,7 +6,7 @@ export default withMermaid(defineConfig({
   description: 'AI-powered dev team orchestration framework',
   base: '/dev-crew/',
   head: [
-    ['link', { rel: 'icon', href: '/dev-crew/logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/dev-crew/dev-crew.png', type: 'image/png' }],
     [
       'link',
       {
@@ -98,7 +98,7 @@ export default withMermaid(defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/dev-crew.png',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lordmos/dev-crew' },
     ],
