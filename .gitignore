@@ -4,8 +4,8 @@ node_modules/
 # Build output
 dist/
 
-# Lock file (regenerated on install)
-package-lock.json
+# Lock file (root only; docs/ lock file is needed for CI)
+/package-lock.json
 
 # Internal product docs (not open-sourced)
 _internal/
