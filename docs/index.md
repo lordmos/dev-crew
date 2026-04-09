@@ -19,8 +19,8 @@ hero:
 
 features:
   - icon: <i class="fas fa-robot"></i>
-    title: 6 Agent 协作团队
-    details: 项目经理统筹调度，产品、架构、开发、测试、审查——多 Agent 平行协作，无需手动分配。
+    title: 按需组建 Agent 团队
+    details: 项目经理按需创建 Agent——产品、架构、开发、测试、审查等角色平行协作，团队规模随需求灵活调整。
   - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI 工作流
     details: Plan → Design → Execute → Verify → Iterate，三种模式覆盖所有开发场景。
@@ -34,6 +34,6 @@ features:
     title: 文件即记忆
     details: 每个 Agent 维护独立的长期记忆和工作记录，跨会话自动恢复上下文。
   - icon: <i class="fas fa-bolt"></i>
-    title: 开箱即用
-    details: 一条命令初始化，AI 自动读取协议并建立团队。
+    title: Skills + MCP
+    details: 提供 init / plan / status / release 等 Skill，CLI 和 MCP Server 双通道，AI Agent 可直接调用。
 ---

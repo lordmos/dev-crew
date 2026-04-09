@@ -10,7 +10,7 @@
 ### Step 1 — 初始化
 
 ```
-小明: /crew:init
+小明: 帮我初始化 DevCrew
 ```
 
 AI 创建了这些文件：
@@ -278,7 +278,7 @@ AI 更新 `proposal.md` frontmatter: `mode: standard`, `upgraded_from: prototype
 三个变更都完成后：
 
 ```
-小明: /crew:release
+小明: 任务都做完了，帮我归档
 AI: 📦 归档 3 个已完成变更:
     - todo-app-mvp (Standard)
     - fix-tag-filter (Express)
@@ -294,7 +294,7 @@ AI: 📦 归档 3 个已完成变更:
 
 | 时间点 | dev-crew/ 下新增/变化的文件 |
 |--------|---------------------------|
-| /crew:init | `resume.md`, `blockers.md` |
+| init skill | `resume.md`, `blockers.md` |
 | Plan（todo-app-mvp） | `changes/todo-app-mvp/proposal.md` |
 | Design | `changes/todo-app-mvp/design.md` |
 | Execute → Verify → Done | resume.md 更新 |
@@ -303,4 +303,4 @@ AI: 📦 归档 3 个已完成变更:
 | Plan（poc-tui） | `changes/poc-tui/proposal.md` |
 | Design | `changes/poc-tui/design.md` |
 | Execute → 升级 → Verify → Done | proposal.md 更新 mode，resume.md 更新 |
-| /crew:release | 所有 changes/ 移至 archive/ |
+| release skill | 所有 changes/ 移至 archive/ |

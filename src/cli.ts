@@ -3,13 +3,16 @@
 import { Command } from "commander";
 import { initCommand } from "./commands/init.js";
 import { agentsCommand } from "./commands/agents.js";
+import { plan } from "./skills/plan.js";
+import { status } from "./skills/status.js";
+import { release } from "./skills/release.js";
 
 const program = new Command();
 
 program
   .name("crew")
   .description("DevCrew — AI Agent 软件开发团队编排工具")
-  .version("0.3.0");
+  .version("0.4.0");
 
 program
   .command("init")
@@ -17,6 +20,47 @@ program
   .option("-n, --name <name>", "项目名称")
   .option("--no-gitignore", "不自动添加 .gitignore 规则")
   .action(initCommand);
+
+program
+  .command("plan <name>")
+  .description("创建变更计划")
+  .option("-m, --mode <mode>", "工作模式: standard | express | prototype")
+  .option("-d, --description <desc>", "变更描述")
+  .action((name: string, opts: { mode?: string; description?: string }) => {
+    const result = plan({
+      cwd: process.cwd(),
+      name,
+      description: opts.description,
+      mode: opts.mode as "standard" | "express" | "prototype" | undefined,
+    });
+    console.log(result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`);
+    for (const line of result.details) console.log(`  ${line}`);
+    console.log();
+    if (!result.ok) process.exitCode = 1;
+  });
+
+program
+  .command("status")
+  .description("查看工作区状态")
+  .action(() => {
+    const result = status({ cwd: process.cwd() });
+    console.log(`\n📊 ${result.summary}\n`);
+    for (const line of result.details) console.log(line);
+    console.log();
+    if (!result.ok) process.exitCode = 1;
+  });
+
+program
+  .command("release")
+  .description("归档已完成的变更")
+  .argument("[name]", "要归档的变更名称（不指定则归档全部）")
+  .action((name?: string) => {
+    const result = release({ cwd: process.cwd(), name });
+    console.log(result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`);
+    for (const line of result.details) console.log(`  ${line}`);
+    console.log();
+    if (!result.ok) process.exitCode = 1;
+  });
 
 program
   .command("agents")

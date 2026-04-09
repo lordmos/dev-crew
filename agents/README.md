@@ -2,7 +2,7 @@
 
 > 共 **29** 位专家 · **10** 个领域包
 
-DevCrew 内建 6 个核心角色（PjM/PdM/Architect/Implementer/Tester/Reviewer）。领域专家是**可选的补充角色**——为特定项目类型提供专业知识，增强核心团队的领域深度。
+DevCrew 的 PjM 会按需组建团队（常见角色：PdM/Architect/Implementer/Tester/Reviewer 等）。领域专家是**可选的补充角色**——为特定项目类型提供专业知识，增强团队的领域深度。
 
 ## 使用方式
 
@@ -14,7 +14,7 @@ specialists:
   - security-engineer
 ```
 
-PjM 在 `/crew:init` 时读取配置，加载对应专家 prompt，在 PDEVI 的相关阶段自动参与。每个专家独立，可自由组合。
+PjM 在 init 时读取配置，加载对应专家 prompt，在 PDEVI 的相关阶段自动参与。每个专家独立，可自由组合。
 
 ---
 
@@ -116,21 +116,21 @@ PjM 在 `/crew:init` 时读取配置，加载对应专家 prompt，在 PDEVI 的
 
 ---
 
-## 专家与核心团队的关系
+## 专家与团队的关系
 
 ```mermaid
 graph TD
     PjM["PjM 调度"]
-    Core["核心团队<br>PdM · Architect · Implementer · Tester · Reviewer"]
+    Team["按需组建团队<br>PdM · Architect · Implementer · Tester · Reviewer …"]
     Spec["领域专家<br>（按配置激活）"]
     
-    PjM -->|编排| Core
+    PjM -->|编排| Team
     PjM -->|按阶段调度| Spec
-    Spec -->|领域知识补充| Core
+    Spec -->|领域知识补充| Team
 ```
 
 **规则**：
-- 领域专家**补充**核心角色，不替代
+- 领域专家**补充**团队角色，不替代
 - PjM 在 PDEVI 对应阶段调度专家参与
 - 专家产出合并到 proposal.md / design.md（不创建独立文件）
-- 未配置专家时，核心团队独立完成所有工作（零影响）
+- 未配置专家时，团队独立完成所有工作（零影响）

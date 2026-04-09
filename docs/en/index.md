@@ -19,8 +19,8 @@ hero:
 
 features:
   - icon: <i class="fas fa-robot"></i>
-    title: 6-Agent Collaborative Team
-    details: PjM orchestrates the team — Product, Architect, Developer, Tester, Reviewer agents work in parallel.
+    title: On-Demand Agent Team
+    details: PjM creates agents as needed — Product, Architect, Developer, Tester, Reviewer and more, working in parallel. Team scales with your needs.
   - icon: <i class="fas fa-arrows-spin"></i>
     title: PDEVI Workflow
     details: Plan → Design → Execute → Verify → Iterate. Three modes for every development scenario.
@@ -34,6 +34,6 @@ features:
     title: Files as Memory
     details: Each agent maintains independent long-term memory and work logs — context auto-recovers across sessions.
   - icon: <i class="fas fa-bolt"></i>
-    title: Ready Out of the Box
-    details: One command to initialize. AI reads the protocol and assembles the team automatically.
+    title: Skills + MCP
+    details: Built-in skills (init, plan, status, release) accessible via CLI and MCP Server — AI agents can call them directly.
 ---

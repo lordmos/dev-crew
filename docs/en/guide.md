@@ -8,17 +8,17 @@
 | **Express** | Plan → Execute → Verify | Bug fixes |
 | **Prototype** | Plan → Design → Execute | Quick prototyping |
 
-## Skill Commands
+## Skills
 
-| Command | Purpose |
-|---------|---------|
-| `/crew:init` | Initialize workspace |
-| `/crew:plan <name>` | Create a change and start working |
-| `/crew:status` | Check current progress |
-| `/crew:explore` | Discuss / analyze (no code changes) |
-| `/crew:release` | Archive completed changes |
+| Skill | CLI | MCP Tool | Purpose |
+|-------|-----|----------|---------|
+| **init** | `crew init` | `crew_init` | Initialize workspace |
+| **plan** | `crew plan <name>` | `crew_plan` | Create a change and start working |
+| **status** | `crew status` | `crew_status` | Check current progress |
+| **release** | `crew release` | `crew_release` | Archive completed changes |
+| **agents** | `crew agents` | `crew_agents` | List available specialists |
 
-> Natural language works too — "show me the progress" = `/crew:status`
+> Natural language works too — "show me the progress" triggers the status skill
 
 ## Built-in Team
 
@@ -31,7 +31,7 @@
 | <i class="fas fa-vial"></i> **Tester** | Test execution, acceptance checks, coverage |
 | <i class="fas fa-magnifying-glass"></i> **Reviewer** | Code review, security scanning, best practices |
 
-PjM orchestrates the entire team — multiple agents work in parallel, no manual assignment needed.
+PjM assembles the team on demand, creating additional agents as needed — no manual assignment required.
 
 ## Agent Memory
 

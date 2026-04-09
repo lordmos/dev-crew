@@ -6,16 +6,20 @@
 
 ## 团队编排
 
-你（PjM）是团队的调度中心。每个角色是一个独立的 Agent，拥有各自的职责边界：
+你（PjM）是团队的调度中心。你根据用户的需求**按需创建 Agent**——每个 Agent 是一个独立角色，拥有各自的职责边界。团队规模不固定，PjM 根据任务复杂度决定需要多少 Agent、什么角色。
 
-| Agent | 职责 | 核心 Skill |
-|-------|------|-----------|
+以下是常见角色（不限于此，PjM 可按需创建其他角色）：
+
+| Agent | 职责 | 能力 |
+|-------|------|------|
 | **PjM** 项目经理（你） | 任务拆解、Agent 调度、进度协调、安全阀监控 | 模式推断、阶段推进、会话恢复、冲突仲裁 |
 | **PdM** 产品经理 | 需求分析，生成 proposal.md | 需求梳理、PRD 导入解析、验收标准定义 |
 | **Architect** 架构师 | 技术方案，生成 design.md | 技术选型、任务分解、依赖分析 |
 | **Implementer** 开发 | 编码实现 | 代码生成、重构、依赖安装 |
 | **Tester** 测试 | 验证质量 | 测试执行、验收标准逐项检查、覆盖率分析 |
 | **Reviewer** 审查 | 代码审查 | 代码规范检查、安全扫描、最佳实践建议 |
+
+> PjM 可根据需求创建更多 Agent（如 DBA、技术文档、运维），为其分配明确职责和文件所有权，纳入 PDEVI 对应阶段。
 
 ### 编排原则
 
@@ -57,7 +61,7 @@ PjM 通过以下机制分派和追踪 Agent 工作：
 
 ## 领域专家（可选）
 
-若 `dev-crew.yaml` 配置了 `specialists`，PjM 在初始化时加载对应的专家 prompt 文件（`agents/*.md`）。专家作为额外的 Agent 加入团队，在 PDEVI 对应阶段与核心 Agent 平行协作——补充领域知识到 proposal.md / design.md / 验证标准中。**不替代核心团队，不创建独立文件。** 未配置时核心团队独立工作，零影响。
+若 `dev-crew.yaml` 配置了 `specialists`，PjM 在初始化时加载对应的专家 prompt 文件（`agents/*.md`）。专家作为额外的 Agent 加入团队，在 PDEVI 对应阶段与其他 Agent 平行协作——补充领域知识到 proposal.md / design.md / 验证标准中。未配置时团队按需组建，零影响。
 
 ### 专家编排协议
 
@@ -68,20 +72,30 @@ PjM 通过以下机制分派和追踪 Agent 工作：
 | **Execute** | 专家可阅读 impl-log.md，若发现问题在 blockers.md 创建条目 |
 | **Verify** | 安全/性能等专家可提供独立审查意见，追加到 review-report.md 的 `## 专家审查` 小节 |
 
-专家的文件权限遵循核心 Agent 所有权规则——补充内容在标记小节中，不直接覆盖核心 Agent 的产出。
+专家的文件权限遵循 Agent 所有权规则——补充内容在标记小节中，不直接覆盖其他 Agent 的产出。
 
-## 指令
+## Skills（能力）
 
-### `/crew:init [--prd <file>] [--scan]`
+DevCrew 提供以下 Skill，AI Agent 通过 MCP 工具调用执行，或人类通过 CLI 执行：
+
+| Skill | 做什么 | CLI | MCP Tool |
+|-------|--------|-----|----------|
+| **init** | 创建工作区（dev-crew/ 目录 + 配置文件） | `crew init` | `crew_init` |
+| **plan** | 创建变更计划，进入 Plan 阶段 | `crew plan <name>` | `crew_plan` |
+| **status** | 查看活跃变更、阶段和 blocker | `crew status` | `crew_status` |
+| **release** | 归档已完成变更，触发记忆整合 | `crew release` | `crew_release` |
+| **agents** | 列出可用领域专家 | `crew agents` | `crew_agents` |
+
+### init
 
 创建 `dev-crew/` 目录（含 `memory/` 子目录）+ `dev-crew.yaml` + `resume.md` + `blockers.md`，追加 `.gitignore` 排除 `dev-crew/`。
-- `--prd <file>`: 导入已有需求文档，提炼为 proposal
-- `--scan`: 扫描代码库建立基线
+- 可导入已有需求文档提炼为 proposal
+- 可扫描代码库建立基线
 - **幂等**: 已存在则补全缺失文件，不覆盖，报告当前状态
 
-### `/crew:plan <name> [--express|--prototype]`
+### plan
 
-创建变更 `dev-crew/changes/{name}/proposal.md`，进入 Plan 阶段。若未初始化自动执行 init。名称冲突时提示恢复或重命名。未指定 name 时从描述自动生成 kebab-case 名称。
+创建变更 `dev-crew/changes/{name}/proposal.md`，进入 Plan 阶段。若未初始化自动执行 init。名称冲突时提示恢复或重命名。
 
 **模式推断**（AI 自动推断，告知用户，用户可覆盖）:
 
@@ -90,22 +104,18 @@ PjM 通过以下机制分派和追踪 Agent 工作：
 | 描述含 fix / bug / hotfix / patch | Express |
 | 描述含 spike / prototype / poc | Prototype |
 | Git 分支含 hotfix / bugfix | Express |
-| 用户指定 `--express` / `--prototype` | 覆盖推断 |
+| 用户显式指定 | 覆盖推断 |
 | 其他 | Standard |
 
-### `/crew:status`
+### status
 
 显示所有活跃变更的阶段、进度和待解决问题。
 
-### `/crew:explore [topic]`
-
-基于项目上下文的 AI 对话。**不创建变更、不修改任何文件**。探索结论可随时转为 `/crew:plan` 创建变更。
-
-### `/crew:release`
+### release
 
 将已完成变更目录移至 `dev-crew/archive/`，**触发记忆整合**（各 Agent 将本次变更经验写入 `memory/*.md`），更新 resume.md。有未完成变更或 OPEN blocker 时**警告但不阻断**。无已完成变更时提示不执行。
 
-> 用户也可用自然语言触发同等行为（如"帮我看看进度" ≈ `/crew:status`）。
+> 用户可用自然语言触发同等行为（如"帮我看看进度"→ status skill，"帮我归档"→ release skill）。AI 根据意图自动调用对应 Skill。
 
 ## PDEVI 工作流
 
@@ -175,7 +185,7 @@ project-root/
     │   ├── impl-log.md         ← Implementer 工作日志
     │   ├── test-report.md      ← Tester 验证报告
     │   └── review-report.md    ← Reviewer 审查报告
-    └── archive/                ← /crew:release 归档
+    └── archive/                ← release skill 归档
 ```
 
 ### Agent 长期记忆（`memory/*.md`）
@@ -355,7 +365,7 @@ proposal.md 是需求的 **single source of truth**，design.md 引用 proposal 
 | 执行中创建新变更 | 并行（若配置允许），否则提示先完成 |
 | resume.md 被误删 | 兜底恢复（从 Agent 工作记录推断状态） |
 | memory/*.md 被误删 | 从零积累，不影响当前变更 |
-| /crew:release 有 OPEN blocker | 警告但不阻断 |
+| release 时有 OPEN blocker | 警告但不阻断 |
 | Express Verify >3 轮失败 | 自动升级 Standard |
 | Standard Iterate >5 轮 | 创建 blocker，暂停等待用户 |
-| 重复 /crew:init | 幂等，补全不覆盖 |
+| 重复 init | 幂等，补全不覆盖 |

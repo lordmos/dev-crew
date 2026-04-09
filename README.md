@@ -110,7 +110,9 @@ flowchart LR
 | **Express** | P → E → V | Bug 修复 |
 | **Prototype** | P → D → E | 快速原型 |
 
-### 内建团队（6 个 Agent）
+### 按需组建团队
+
+PjM 根据用户需求按需创建 Agent，常见角色：
 
 | Agent | 职责 |
 |-------|------|
@@ -121,11 +123,11 @@ flowchart LR
 | **Tester** 测试 | 测试执行、验收检查、覆盖率 |
 | **Reviewer** 审查 | 规范检查、安全扫描、最佳实践 |
 
-PjM 统筹全局，各 Agent 各司其职、平行协作，无需手动分配。
+> 团队规模不固定，PjM 按需创建更多 Agent（如 DBA、技术文档、运维），无需手动分配。
 
 ### 领域专家（29 位）
 
-核心团队之外，**29 位领域专家**覆盖 10 个领域，按需激活：
+另有 **29 位领域专家**覆盖 10 个领域，按需激活：
 
 > 游戏开发（8）· UI/UX（3）· 安全（1）· DevOps（3）· 测试（3）· 工程（5）· 数据（2）· AI/ML（1）· Web3（1）· 空间计算（2）
 
@@ -144,17 +146,17 @@ crew agents  # 查看所有可用专家
 
 ---
 
-## Skill 指令
+## Skills
 
-| 指令 | 用途 |
-|------|------|
-| `/crew:init` | 初始化工作区 |
-| `/crew:plan <名称>` | 创建变更并开始工作 |
-| `/crew:status` | 查看当前进度 |
-| `/crew:explore` | 讨论 / 分析（不改代码） |
-| `/crew:release` | 归档已完成变更 |
+| Skill | CLI | MCP Tool | 用途 |
+|-------|-----|----------|------|
+| **init** | `crew init` | `crew_init` | 初始化工作区 |
+| **plan** | `crew plan <名称>` | `crew_plan` | 创建变更并开始工作 |
+| **status** | `crew status` | `crew_status` | 查看当前进度 |
+| **release** | `crew release` | `crew_release` | 归档已完成变更 |
+| **agents** | `crew agents` | `crew_agents` | 列出可用领域专家 |
 
-> 自然语言同样有效——"帮我看看进度" = `/crew:status`
+> 自然语言同样有效——"帮我看看进度"，AI 自动调用 status skill
 
 ---
 
@@ -165,11 +167,11 @@ crew agents  # 查看所有可用专家
 | 从零开始 | "有个想法，从零构建" | 初始化 → 引导需求 → Standard |
 | 已有 PRD | "需求文档在这，执行吧" | 导入 PRD → 提炼 → Standard |
 | 中途接入 | "代码已有，帮我续上" | 扫描代码 → 建基线 → Standard |
-| 头脑风暴 | "讨论一下方案" | `/crew:explore`（不改代码） |
+| 头脑风暴 | "讨论一下方案" | 探索模式（不改代码） |
 | Bug 修复 | "有个 bug，快修" | Express 模式 |
 | 代码重构 | "这段代码要重构" | Standard 完整流程 |
 | 快速原型 | "先做个原型验证" | Prototype 模式 |
-| 学习代码库 | "帮我理解这段代码" | `/crew:explore`（分析代码） |
+| 学习代码库 | "帮我理解这段代码" | 探索模式（分析代码） |
 
 ---
 
@@ -177,19 +179,21 @@ crew agents  # 查看所有可用专家
 
 ```
 ┌─────────────────────────────────────────────┐
-│  工具层                                      │
+│  Skills 层                                   │
 │  ┌──────────────┐  ┌──────────────────────┐ │
-│  │ CLI          │  │ Agent Skill          │ │
-│  │ crew init    │  │ INSTRUCTIONS.md      │ │
-│  │ crew agents  │  │ /crew: 指令          │ │
+│  │ CLI          │  │ MCP Server           │ │
+│  │ crew init    │  │ crew_init            │ │
+│  │ crew plan    │  │ crew_plan            │ │
+│  │ crew status  │  │ crew_status          │ │
+│  │ crew release │  │ crew_release         │ │
 │  └──────────────┘  └──────────────────────┘ │
 ├─────────────────────────────────────────────┤
 │  协议层（核心，零工具依赖）                    │
-│  目录约定 · 文件格式 · PDEVI · 通信规则       │
+│  INSTRUCTIONS.md · PDEVI 工作流 · 文件约定    │
 └─────────────────────────────────────────────┘
 ```
 
-> 即使不装 CLI，手动放入 `INSTRUCTIONS.md` 也能工作。CLI 只是让流程更方便。
+> 即使不装 CLI/MCP，手动放入 `INSTRUCTIONS.md` 也能工作。Skills 让流程更高效。
 
 ---
 

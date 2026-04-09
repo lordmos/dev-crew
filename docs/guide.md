@@ -8,17 +8,17 @@
 | **Express** | Plan → Execute → Verify | Bug 修复 |
 | **Prototype** | Plan → Design → Execute | 快速原型 |
 
-## Skill 指令
+## Skills
 
-| 指令 | 用途 |
-|------|------|
-| `/crew:init` | 初始化工作区 |
-| `/crew:plan <名称>` | 创建变更并开始工作 |
-| `/crew:status` | 查看当前进度 |
-| `/crew:explore` | 讨论 / 分析（不改代码） |
-| `/crew:release` | 归档已完成变更 |
+| Skill | CLI | MCP Tool | 用途 |
+|-------|-----|----------|------|
+| **init** | `crew init` | `crew_init` | 初始化工作区 |
+| **plan** | `crew plan <名称>` | `crew_plan` | 创建变更并开始工作 |
+| **status** | `crew status` | `crew_status` | 查看当前进度 |
+| **release** | `crew release` | `crew_release` | 归档已完成变更 |
+| **agents** | `crew agents` | `crew_agents` | 列出可用领域专家 |
 
-> 自然语言同样有效——"帮我看看进度" = `/crew:status`
+> 自然语言同样有效——"帮我看看进度"，AI 自动调用 status skill
 
 ## 内建团队
 
@@ -31,7 +31,7 @@
 | <i class="fas fa-vial"></i> **Tester** 测试 | 测试执行、验收检查、覆盖率 |
 | <i class="fas fa-magnifying-glass"></i> **Reviewer** 审查 | 规范检查、安全扫描、最佳实践 |
 
-PjM 统筹全局，各 Agent 各司其职、平行协作，无需手动分配。
+PjM 按需组建团队，可根据需求创建更多 Agent，无需手动分配。
 
 ## Agent 记忆
 

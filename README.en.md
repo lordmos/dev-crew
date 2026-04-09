@@ -110,7 +110,9 @@ Three modes for every scenario:
 | **Express** | P → E → V | Bug fixes |
 | **Prototype** | P → D → E | Quick prototyping |
 
-### Built-in Team (6 Agents)
+### On-Demand Team Assembly
+
+PjM creates agents on demand based on user needs. Common roles:
 
 | Agent | Responsibility |
 |-------|---------------|
@@ -121,7 +123,7 @@ Three modes for every scenario:
 | **Tester** | Test execution, acceptance checks, coverage |
 | **Reviewer** | Code review, security scanning, best practices |
 
-PjM orchestrates the entire team — multiple agents work in parallel, no manual assignment needed.
+> Team size is flexible — PjM creates additional agents (e.g., DBA, Tech Writer, SRE) as needed, no manual assignment required.
 
 ### Domain Specialists (29)
 
@@ -144,17 +146,17 @@ crew agents  # List all available specialists
 
 ---
 
-## Skill Commands
+## Skills
 
-| Command | Purpose |
-|---------|---------|
-| `/crew:init` | Initialize workspace |
-| `/crew:plan <name>` | Create a change and start working |
-| `/crew:status` | Check current progress |
-| `/crew:explore` | Discuss / analyze (no code changes) |
-| `/crew:release` | Archive completed changes |
+| Skill | CLI | MCP Tool | Purpose |
+|-------|-----|----------|---------|
+| **init** | `crew init` | `crew_init` | Initialize workspace |
+| **plan** | `crew plan <name>` | `crew_plan` | Create a change and start working |
+| **status** | `crew status` | `crew_status` | Check current progress |
+| **release** | `crew release` | `crew_release` | Archive completed changes |
+| **agents** | `crew agents` | `crew_agents` | List available specialists |
 
-> Natural language works too — "show me the progress" = `/crew:status`
+> Natural language works too — "show me the progress" triggers the status skill automatically
 
 ---
 
@@ -165,11 +167,11 @@ crew agents  # List all available specialists
 | Greenfield | "I have an idea, build from scratch" | Init → guide requirements → Standard |
 | Existing PRD | "Here's the PRD, execute it" | Import PRD → refine → Standard |
 | Mid-project | "Code exists, help me continue" | Scan code → establish baseline → Standard |
-| Brainstorm | "Let's discuss the approach" | `/crew:explore` (no code changes) |
+| Brainstorm | "Let's discuss the approach" | Explore mode (no code changes) |
 | Bug fix | "There's a bug, fix it fast" | Express mode |
 | Refactor | "This code needs refactoring" | Standard (full workflow) |
 | Prototype | "Build a quick prototype first" | Prototype mode |
-| Learn codebase | "Help me understand this code" | `/crew:explore` (code analysis) |
+| Learn codebase | "Help me understand this code" | Explore mode (code analysis) |
 
 ---
 
@@ -177,20 +179,22 @@ crew agents  # List all available specialists
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Tool Layer                                  │
+│  Skills Layer                                │
 │  ┌──────────────┐  ┌──────────────────────┐ │
-│  │ CLI          │  │ Agent Skill          │ │
-│  │ crew init    │  │ INSTRUCTIONS.md      │ │
-│  │ crew agents  │  │ /crew: commands      │ │
+│  │ CLI          │  │ MCP Server           │ │
+│  │ crew init    │  │ crew_init            │ │
+│  │ crew plan    │  │ crew_plan            │ │
+│  │ crew status  │  │ crew_status          │ │
+│  │ crew release │  │ crew_release         │ │
 │  └──────────────┘  └──────────────────────┘ │
 ├─────────────────────────────────────────────┤
 │  Protocol Layer (core, zero tool dependency) │
-│  Directory conventions · File formats ·      │
-│  PDEVI workflow · Communication rules        │
+│  INSTRUCTIONS.md · PDEVI workflow ·          │
+│  File conventions · Communication rules      │
 └─────────────────────────────────────────────┘
 ```
 
-> Even without CLI, manually placing `INSTRUCTIONS.md` works. CLI just makes it easier.
+> Even without CLI/MCP, manually placing `INSTRUCTIONS.md` works. Skills make the workflow more efficient.
 
 ---
 
