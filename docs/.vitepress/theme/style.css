@@ -122,3 +122,63 @@
 :root ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(217, 119, 6, 0.35);
 }
+
+/* ---- Home: Best Practices ---- */
+.home-examples {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.home-examples h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.example-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.example-card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--vp-c-brand-soft);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.example-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 2px 12px var(--vp-c-brand-soft);
+}
+
+.example-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--vp-c-brand-1);
+}
+
+.example-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.example-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.example-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}

@@ -37,3 +37,24 @@ features:
     title: Skills + MCP
     details: Built-in skills (init, plan, status, release) accessible via CLI and MCP Server — AI agents can call them directly.
 ---
+
+<div class="home-examples">
+
+## Best Practices
+
+<div class="example-cards">
+<a class="example-card" href="/dev-crew/en/examples/01-greenfield-todo-app">
+  <div class="example-icon"><i class="fas fa-seedling"></i></div>
+  <h3>Build a Todo App from Scratch</h3>
+  <p>Full walkthrough of Standard / Express / Prototype modes — covering new features, bug fixes, and rapid prototyping.</p>
+  <span class="example-link">View Example →</span>
+</a>
+<a class="example-card" href="/dev-crew/en/examples/02-midway-join-project">
+  <div class="example-icon"><i class="fas fa-code-branch"></i></div>
+  <h3>Join an Existing Project</h3>
+  <p>Learn how to take over someone else's code — scanning, brainstorming, security fixes, and refactoring.</p>
+  <span class="example-link">View Example →</span>
+</a>
+</div>
+
+</div>

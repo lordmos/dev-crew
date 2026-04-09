@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: 'DevCrew',
   description: 'AI-powered dev team orchestration framework',
   base: '/dev-crew/',
@@ -121,4 +122,4 @@ export default defineConfig({
   },
 
   ignoreDeadLinks: true,
-})
+}))

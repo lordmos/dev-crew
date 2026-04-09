@@ -37,3 +37,24 @@ features:
     title: Skills + MCP
     details: 提供 init / plan / status / release 等 Skill，CLI 和 MCP Server 双通道，AI Agent 可直接调用。
 ---
+
+<div class="home-examples">
+
+## 最佳实践
+
+<div class="example-cards">
+<a class="example-card" href="/dev-crew/examples/01-greenfield-todo-app">
+  <div class="example-icon"><i class="fas fa-seedling"></i></div>
+  <h3>从零构建 Todo App</h3>
+  <p>完整演示 Standard / Express / Prototype 三种模式，涵盖新功能开发、Bug 修复和快速原型。</p>
+  <span class="example-link">查看案例 →</span>
+</a>
+<a class="example-card" href="/dev-crew/examples/02-midway-join-project">
+  <div class="example-icon"><i class="fas fa-code-branch"></i></div>
+  <h3>中途接入已有项目</h3>
+  <p>演示如何接手他人代码——扫描学习、头脑风暴、安全修复、代码重构的完整流程。</p>
+  <span class="example-link">查看案例 →</span>
+</a>
+</div>
+
+</div>
