@@ -1,7 +1,7 @@
 {
   "name": "devcrew",
   "version": "0.1.0",
-  "description": "AI Agent 软件开发团队编排框架 — 开箱即用的 CLI + Skill 工具",
+  "description": "AI-powered dev team orchestration framework — out-of-the-box CLI + Agent Skill",
   "keywords": [
     "ai",
     "agent",
@@ -9,13 +9,22 @@
     "copilot",
     "claude",
     "cursor",
+    "chatgpt",
     "software-development",
-    "cli"
+    "cli",
+    "dev-team",
+    "workflow",
+    "pdevi"
   ],
+  "author": "lordmos",
   "license": "MIT",
+  "homepage": "https://lordmos.github.io/devcrew/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/devcrew"
+    "url": "https://github.com/lordmos/devcrew.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lordmos/devcrew/issues"
   },
   "bin": {
     "crew": "./dist/cli.js"

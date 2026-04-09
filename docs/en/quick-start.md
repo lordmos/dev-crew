@@ -1,0 +1,64 @@
+# Quick Start
+
+## Install
+
+```bash
+npm install -g devcrew
+```
+
+> Requires Node.js 18+
+
+## Initialize Your Project
+
+```bash
+cd your-project
+crew init
+```
+
+`crew init` creates:
+
+```
+your-project/
+├── INSTRUCTIONS.md    ← AI behavior instructions (core file)
+├── devcrew.yaml       ← Project configuration
+└── devcrew/
+    └── specs/         ← Shared specifications
+```
+
+## Start Working
+
+Open any AI assistant (Copilot, Claude, Cursor, etc.). The AI automatically reads `INSTRUCTIONS.md`, assembles the team, and follows the PDEVI workflow.
+
+```
+You: I need to add auth middleware to the API
+
+AI:  📋 Creating change add-api-auth, mode: Standard
+     Plan — Requirements:
+     - Goal: Add JWT auth to all /api/ routes
+     - Acceptance: ☐ No token → 401  ☐ Expired token → 401
+     Please confirm.
+
+You: Confirmed
+
+AI:  Design → Execute → Verify — All passed. Please confirm acceptance.
+
+You: Confirmed
+
+AI:  ✅ Change add-api-auth complete.
+```
+
+You only confirm twice (requirements + results). Everything else is automatic.
+
+## View Available Specialists
+
+```bash
+crew agents
+```
+
+Activate in `devcrew.yaml`:
+
+```yaml
+specialists:
+  - game-designer
+  - security-engineer
+```

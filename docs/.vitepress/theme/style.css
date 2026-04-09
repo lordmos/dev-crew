@@ -1,0 +1,96 @@
+/* DevCrew — Nike Run Club inspired theme */
+
+:root {
+  /* Brand colors — NRC Volt palette */
+  --vp-c-brand-1: #CDFE00;
+  --vp-c-brand-2: #B8E600;
+  --vp-c-brand-3: #A0CC00;
+  --vp-c-brand-soft: rgba(205, 254, 0, 0.12);
+
+  /* Typography — Space Grotesk + Noto Sans SC */
+  --vp-font-family-base: 'Space Grotesk', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+.dark {
+  --vp-c-brand-1: #CDFE00;
+  --vp-c-brand-2: #DEFF4D;
+  --vp-c-brand-3: #B8E600;
+  --vp-c-brand-soft: rgba(205, 254, 0, 0.08);
+
+  --vp-c-bg: #0A0A0A;
+  --vp-c-bg-alt: #111111;
+  --vp-c-bg-elv: #1A1A1A;
+  --vp-c-bg-soft: #1A1A1A;
+}
+
+/* Hero section enhancements */
+.VPHero .name {
+  background: linear-gradient(135deg, #CDFE00 0%, #FFFFFF 50%, #CDFE00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.VPHero .text {
+  font-weight: 600;
+}
+
+.VPHero .tagline {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* Button overrides for NRC feel */
+.VPButton.brand {
+  background-color: #CDFE00 !important;
+  color: #0A0A0A !important;
+  border-color: #CDFE00 !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.VPButton.brand:hover {
+  background-color: #DEFF4D !important;
+  border-color: #DEFF4D !important;
+}
+
+.VPButton.alt {
+  color: #CDFE00 !important;
+  border-color: rgba(205, 254, 0, 0.4) !important;
+}
+
+.VPButton.alt:hover {
+  border-color: #CDFE00 !important;
+}
+
+/* Feature cards */
+.VPFeature {
+  border: 1px solid rgba(205, 254, 0, 0.12) !important;
+  transition: border-color 0.3s ease;
+}
+
+.VPFeature:hover {
+  border-color: rgba(205, 254, 0, 0.35) !important;
+}
+
+/* Code blocks */
+.dark .vp-code-group .tabs label.active {
+  color: #CDFE00;
+}
+
+/* Badge */
+.VPBadge.tip {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(205, 254, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(205, 254, 0, 0.4);
+}

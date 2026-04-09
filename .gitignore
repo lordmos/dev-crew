@@ -10,6 +10,11 @@ package-lock.json
 # Internal product docs (not open-sourced)
 _internal/
 
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/node_modules
+
 # OS
 .DS_Store
 Thumbs.db

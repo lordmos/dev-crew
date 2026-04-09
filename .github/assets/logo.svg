@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="voltGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CDFE00"/>
+      <stop offset="100%" stop-color="#A0CC00"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2A2A2A"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="200" rx="20" fill="#0A0A0A"/>
+
+  <!-- === Robot 1 (Left - PjM/Manager, smallest) === -->
+  <g transform="translate(80, 95)" filter="url(#glow)">
+    <!-- Antenna -->
+    <line x1="0" y1="-48" x2="0" y2="-58" stroke="#CDFE00" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="-61" r="3.5" fill="#CDFE00" opacity="0.9"/>
+    <!-- Head -->
+    <rect x="-22" y="-46" width="44" height="34" rx="8" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.5"/>
+    <!-- Eyes -->
+    <circle cx="-8" cy="-30" r="5" fill="#CDFE00" opacity="0.95"/>
+    <circle cx="8" cy="-30" r="5" fill="#CDFE00" opacity="0.95"/>
+    <circle cx="-8" cy="-30" r="2" fill="#0A0A0A"/>
+    <circle cx="8" cy="-30" r="2" fill="#0A0A0A"/>
+    <!-- Mouth -->
+    <rect x="-8" y="-19" width="16" height="2.5" rx="1.2" fill="#CDFE00" opacity="0.5"/>
+    <!-- Body -->
+    <rect x="-26" y="-9" width="52" height="44" rx="10" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.5"/>
+    <!-- Chest indicator -->
+    <circle cx="0" cy="6" r="6" fill="none" stroke="#CDFE00" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="0" cy="6" r="2.5" fill="#CDFE00" opacity="0.7"/>
+    <!-- Arms -->
+    <rect x="-36" y="-4" width="8" height="28" rx="4" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <rect x="28" y="-4" width="8" height="28" rx="4" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <!-- Legs -->
+    <rect x="-16" y="37" width="12" height="18" rx="5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <rect x="4" y="37" width="12" height="18" rx="5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <!-- Manager badge -->
+    <rect x="10" y="0" width="14" height="10" rx="2" fill="#CDFE00" opacity="0.8"/>
+    <text x="17" y="8" font-family="monospace" font-size="6" fill="#0A0A0A" text-anchor="middle" font-weight="bold">PM</text>
+  </g>
+
+  <!-- === Robot 2 (Center - Implementer, largest) === -->
+  <g transform="translate(200, 85)" filter="url(#glow)">
+    <!-- Antenna -->
+    <line x1="0" y1="-58" x2="0" y2="-70" stroke="#CDFE00" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="-73" r="4.5" fill="#CDFE00" opacity="0.9"/>
+    <!-- Head -->
+    <rect x="-28" y="-56" width="56" height="42" rx="10" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.8"/>
+    <!-- Eyes - visor style -->
+    <rect x="-20" y="-43" width="40" height="12" rx="6" fill="#111" stroke="#CDFE00" stroke-width="1" opacity="0.9"/>
+    <circle cx="-10" cy="-37" r="4.5" fill="#CDFE00"/>
+    <circle cx="10" cy="-37" r="4.5" fill="#CDFE00"/>
+    <circle cx="-10" cy="-37" r="2" fill="#0A0A0A"/>
+    <circle cx="10" cy="-37" r="2" fill="#0A0A0A"/>
+    <!-- Mouth -->
+    <rect x="-10" y="-24" width="20" height="3" rx="1.5" fill="#CDFE00" opacity="0.5"/>
+    <!-- Body -->
+    <rect x="-32" y="-10" width="64" height="56" rx="12" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.8"/>
+    <!-- Chest panel -->
+    <rect x="-18" y="0" width="36" height="20" rx="4" fill="#111" stroke="#CDFE00" stroke-width="1" opacity="0.5"/>
+    <text x="0" y="14" font-family="monospace" font-size="8" fill="#CDFE00" text-anchor="middle" opacity="0.8">&lt;/&gt;</text>
+    <!-- Arms -->
+    <rect x="-44" y="-4" width="10" height="34" rx="5" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.5"/>
+    <rect x="34" y="-4" width="10" height="34" rx="5" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.5"/>
+    <!-- Hand glow -->
+    <circle cx="-39" cy="33" r="4" fill="#CDFE00" opacity="0.3"/>
+    <circle cx="39" cy="33" r="4" fill="#CDFE00" opacity="0.3"/>
+    <!-- Legs -->
+    <rect x="-20" y="48" width="14" height="22" rx="6" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.5"/>
+    <rect x="6" y="48" width="14" height="22" rx="6" fill="url(#bodyGrad)" stroke="#444" stroke-width="1.5"/>
+  </g>
+
+  <!-- === Robot 3 (Right - Tester/Reviewer, medium) === -->
+  <g transform="translate(320, 92)" filter="url(#glow)">
+    <!-- Antenna - forked -->
+    <line x1="-5" y1="-50" x2="-8" y2="-62" stroke="#CDFE00" stroke-width="2" stroke-linecap="round"/>
+    <line x1="5" y1="-50" x2="8" y2="-62" stroke="#CDFE00" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="-8" cy="-64" r="3" fill="#CDFE00" opacity="0.9"/>
+    <circle cx="8" cy="-64" r="3" fill="#CDFE00" opacity="0.9"/>
+    <!-- Head -->
+    <rect x="-24" y="-48" width="48" height="36" rx="9" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.5"/>
+    <!-- Eyes -->
+    <circle cx="-9" cy="-32" r="5.5" fill="#CDFE00" opacity="0.95"/>
+    <circle cx="9" cy="-32" r="5.5" fill="#CDFE00" opacity="0.95"/>
+    <circle cx="-9" cy="-32" r="2.2" fill="#0A0A0A"/>
+    <circle cx="9" cy="-32" r="2.2" fill="#0A0A0A"/>
+    <!-- Mouth - smile -->
+    <path d="M-7,-19 Q0,-14 7,-19" fill="none" stroke="#CDFE00" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+    <!-- Body -->
+    <rect x="-28" y="-9" width="56" height="48" rx="11" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.5"/>
+    <!-- Chest - checkmark -->
+    <circle cx="0" cy="10" r="10" fill="none" stroke="#CDFE00" stroke-width="1.2" opacity="0.5"/>
+    <path d="M-5,10 L-1,14 L6,5" fill="none" stroke="#CDFE00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    <!-- Arms -->
+    <rect x="-38" y="-4" width="9" height="30" rx="4.5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <rect x="29" y="-4" width="9" height="30" rx="4.5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <!-- Legs -->
+    <rect x="-18" y="41" width="13" height="20" rx="5.5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <rect x="5" y="41" width="13" height="20" rx="5.5" fill="url(#bodyGrad)" stroke="#333" stroke-width="1.2"/>
+    <!-- QA badge -->
+    <rect x="-22" y="1" width="14" height="10" rx="2" fill="#CDFE00" opacity="0.8"/>
+    <text x="-15" y="9" font-family="monospace" font-size="6" fill="#0A0A0A" text-anchor="middle" font-weight="bold">QA</text>
+  </g>
+
+  <!-- Ground line / glow effect -->
+  <line x1="40" y1="170" x2="360" y2="170" stroke="#CDFE00" stroke-width="1" opacity="0.15"/>
+  <ellipse cx="200" cy="170" rx="160" ry="3" fill="#CDFE00" opacity="0.06"/>
+</svg>
