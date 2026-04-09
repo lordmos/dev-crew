@@ -1,5 +1,5 @@
 {
-  "name": "@lordmos/devcrew",
+  "name": "@lordmos/dev-crew",
   "version": "0.1.0",
   "description": "AI-powered dev team orchestration framework — out-of-the-box CLI + Agent Skill",
   "keywords": [
@@ -18,13 +18,13 @@
   ],
   "author": "lordmos",
   "license": "MIT",
-  "homepage": "https://lordmos.github.io/devcrew/",
+  "homepage": "https://lordmos.github.io/dev-crew/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lordmos/devcrew.git"
+    "url": "https://github.com/lordmos/dev-crew.git"
   },
   "bugs": {
-    "url": "https://github.com/lordmos/devcrew/issues"
+    "url": "https://github.com/lordmos/dev-crew/issues"
   },
   "bin": {
     "crew": "./dist/cli.js"

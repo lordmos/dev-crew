@@ -3,9 +3,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'DevCrew',
   description: 'AI-powered dev team orchestration framework',
-  base: '/devcrew/',
+  base: '/dev-crew/',
   head: [
-    ['link', { rel: 'icon', href: '/devcrew/logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/dev-crew/logo.svg', type: 'image/svg+xml' }],
     [
       'link',
       {
@@ -75,7 +75,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/lordmos/devcrew' },
+      { icon: 'github', link: 'https://github.com/lordmos/dev-crew' },
     ],
     footer: {
       message: 'Released under the MIT License.',

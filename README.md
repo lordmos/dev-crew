@@ -12,7 +12,7 @@
   [![npm version](https://img.shields.io/npm/v/@lordmos/devcrew?style=flat-square&color=CDFE00)](https://www.npmjs.com/package/@lordmos/devcrew)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
   [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-CDFE00.svg?style=flat-square)](https://github.com/lordmos/devcrew/pulls)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-CDFE00.svg?style=flat-square)](https://github.com/lordmos/dev-crew/pulls)
 
 </div>
 

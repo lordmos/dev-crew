@@ -15,7 +15,7 @@ hero:
       link: /en/quick-start
     - theme: alt
       text: GitHub
-      link: https://github.com/lordmos/devcrew
+      link: https://github.com/lordmos/dev-crew
 
 features:
   - icon: 🤖
