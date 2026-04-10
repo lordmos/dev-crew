@@ -11,7 +11,7 @@ export default withMermaid(defineConfig({
       'link',
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap',
       },
     ],
     [
@@ -115,6 +115,14 @@ export default withMermaid(defineConfig({
     resolve: {
       preserveSymlinks: true,
     },
+  },
+
+  // Strip mermaid-related modulepreload hints from pages that don't use them
+  transformHtml(code) {
+    return code.replace(
+      /<link rel="modulepreload" href="[^"]*(?:Diagram|dagre|katex|bilkent|sankey|diagram|mindmap|timeline|kanban|gantt|block|architecture|ishikawa|venn|wardley|mermaid|c4Diagram)[^"]*">\n?/gi,
+      ''
+    )
   },
 
   markdown: {

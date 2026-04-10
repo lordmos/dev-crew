@@ -18,22 +18,22 @@ hero:
       link: https://github.com/lordmos/dev-crew
 
 features:
-  - icon: <i class="fas fa-robot"></i>
+  - icon: 🤖
     title: 按需组建 Agent 团队
     details: 项目经理按需创建 Agent——产品、架构、开发、测试、审查等角色平行协作，团队规模随需求灵活调整。
-  - icon: <i class="fas fa-arrows-spin"></i>
+  - icon: 🔄
     title: PDEVI 工作流
     details: Plan → Design → Execute → Verify → Iterate，三种模式覆盖所有开发场景。
-  - icon: <i class="fas fa-puzzle-piece"></i>
+  - icon: 🧩
     title: 29 位领域专家
     details: 游戏开发、安全、DevOps、AI/ML 等 10 个领域，按需激活。
-  - icon: <i class="fas fa-globe"></i>
+  - icon: 🌐
     title: 跨平台兼容
     details: 适用于 GitHub Copilot、Claude、ChatGPT、Cursor 等任何 AI 平台。
-  - icon: <i class="fas fa-folder-open"></i>
+  - icon: 🧠
     title: 文件即记忆
     details: 每个 Agent 维护独立的长期记忆和工作记录，跨会话自动恢复上下文。
-  - icon: <i class="fas fa-bolt"></i>
+  - icon: ⚡
     title: Skills + MCP
     details: 提供 init / plan / status / release 等 Skill，CLI 和 MCP Server 双通道，AI Agent 可直接调用。
 ---
@@ -44,13 +44,13 @@ features:
 
 <div class="example-cards">
 <a class="example-card" href="/dev-crew/examples/01-greenfield-todo-app">
-  <div class="example-icon"><i class="fas fa-seedling"></i></div>
+  <div class="example-icon">🌱</div>
   <h3>从零构建 Todo App</h3>
   <p>完整演示 Standard / Express / Prototype 三种模式，涵盖新功能开发、Bug 修复和快速原型。</p>
   <span class="example-link">查看案例 →</span>
 </a>
 <a class="example-card" href="/dev-crew/examples/02-midway-join-project">
-  <div class="example-icon"><i class="fas fa-code-branch"></i></div>
+  <div class="example-icon">🔀</div>
   <h3>中途接入已有项目</h3>
   <p>演示如何接手他人代码——扫描学习、头脑风暴、安全修复、代码重构的完整流程。</p>
   <span class="example-link">查看案例 →</span>

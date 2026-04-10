@@ -12,10 +12,16 @@
   --vp-c-brand-3: #92400E;
   --vp-c-brand-soft: rgba(217, 119, 6, 0.14);
 
-  --vp-font-family-base: 'Space Grotesk', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-base: 'IBM Plex Sans', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
+  --vp-home-hero-name-background: transparent;
+
   --dc-btn-text: #FFFBEB;
+  --dc-text-muted: #6B7280;
+  --dc-hover-border: rgba(217, 119, 6, 0.3);
+  --dc-scrollbar-hover: rgba(217, 119, 6, 0.35);
 }
 
 .dark {
@@ -30,72 +36,52 @@
   --vp-c-bg-soft: #18181B;
 
   --dc-btn-text: #09090B;
+  --dc-text-muted: #9CA3AF;
+  --dc-hover-border: rgba(251, 191, 36, 0.3);
+  --dc-scrollbar-hover: rgba(251, 191, 36, 0.35);
 }
 
 /* ---- Hero ---- */
-.VPHero .name {
-  background: linear-gradient(135deg, #92400E, #D97706);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.dark .VPHero .name {
-  background: linear-gradient(135deg, #FDE68A, #FBBF24 55%, #F59E0B);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .VPHero .text {
   font-weight: 600;
 }
 
 .VPHero .tagline {
   font-size: 1.05rem;
-  opacity: 0.85;
+  color: var(--dc-text-muted);
 }
 
 /* ---- Buttons ---- */
-.VPButton.brand {
-  background-color: var(--vp-c-brand-1) !important;
-  color: var(--dc-btn-text) !important;
-  border-color: var(--vp-c-brand-1) !important;
+html .VPButton.brand {
+  background-color: var(--vp-c-brand-1);
+  color: var(--dc-btn-text);
+  border-color: var(--vp-c-brand-1);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
-.VPButton.brand:hover {
-  background-color: var(--vp-c-brand-2) !important;
-  border-color: var(--vp-c-brand-2) !important;
+html .VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
 }
 
-.VPButton.alt {
-  color: var(--vp-c-brand-1) !important;
-  border-color: var(--vp-c-brand-soft) !important;
+html .VPButton.alt {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-soft);
 }
 
-.VPButton.alt:hover {
-  border-color: var(--vp-c-brand-1) !important;
+html .VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1);
 }
 
 /* ---- Feature cards ---- */
-.VPFeature {
-  border-color: var(--vp-c-brand-soft) !important;
+html .VPFeature {
+  border-color: var(--vp-c-brand-soft);
   transition: border-color 0.25s ease-out;
 }
 
-.VPFeature:hover {
-  border-color: var(--vp-c-brand-1) !important;
-  border-color: rgba(251, 191, 36, 0.3) !important;
-}
-
-.dark .VPFeature:hover {
-  border-color: rgba(251, 191, 36, 0.3) !important;
-}
-
-:root .VPFeature:hover {
-  border-color: rgba(217, 119, 6, 0.3) !important;
+html .VPFeature:hover {
+  border-color: var(--dc-hover-border);
 }
 
 /* ---- Code blocks ---- */
@@ -116,11 +102,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(251, 191, 36, 0.35);
-}
-
-:root ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(217, 119, 6, 0.35);
+  background-color: var(--dc-scrollbar-hover);
 }
 
 /* ---- Home: Best Practices ---- */
@@ -161,7 +143,6 @@
 .example-icon {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
-  color: var(--vp-c-brand-1);
 }
 
 .example-card h3 {
@@ -172,7 +153,7 @@
 
 .example-card p {
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: var(--dc-text-muted);
   margin: 0 0 0.75rem;
   line-height: 1.5;
 }

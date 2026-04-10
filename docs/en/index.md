@@ -18,22 +18,22 @@ hero:
       link: https://github.com/lordmos/dev-crew
 
 features:
-  - icon: <i class="fas fa-robot"></i>
+  - icon: 🤖
     title: On-Demand Agent Team
     details: PjM creates agents as needed — Product, Architect, Developer, Tester, Reviewer and more, working in parallel. Team scales with your needs.
-  - icon: <i class="fas fa-arrows-spin"></i>
+  - icon: 🔄
     title: PDEVI Workflow
     details: Plan → Design → Execute → Verify → Iterate. Three modes for every development scenario.
-  - icon: <i class="fas fa-puzzle-piece"></i>
+  - icon: 🧩
     title: 29 Domain Specialists
     details: Game dev, security, DevOps, AI/ML and more — 10 domains, activated on demand.
-  - icon: <i class="fas fa-globe"></i>
+  - icon: 🌐
     title: Cross-Platform
     details: Works with GitHub Copilot, Claude, ChatGPT, Cursor, and any AI platform.
-  - icon: <i class="fas fa-folder-open"></i>
+  - icon: 🧠
     title: Files as Memory
     details: Each agent maintains independent long-term memory and work logs — context auto-recovers across sessions.
-  - icon: <i class="fas fa-bolt"></i>
+  - icon: ⚡
     title: Skills + MCP
     details: Built-in skills (init, plan, status, release) accessible via CLI and MCP Server — AI agents can call them directly.
 ---
@@ -44,13 +44,13 @@ features:
 
 <div class="example-cards">
 <a class="example-card" href="/dev-crew/en/examples/01-greenfield-todo-app">
-  <div class="example-icon"><i class="fas fa-seedling"></i></div>
+  <div class="example-icon">🌱</div>
   <h3>Build a Todo App from Scratch</h3>
   <p>Full walkthrough of Standard / Express / Prototype modes — covering new features, bug fixes, and rapid prototyping.</p>
   <span class="example-link">View Example →</span>
 </a>
 <a class="example-card" href="/dev-crew/en/examples/02-midway-join-project">
-  <div class="example-icon"><i class="fas fa-code-branch"></i></div>
+  <div class="example-icon">🔀</div>
   <h3>Join an Existing Project</h3>
   <p>Learn how to take over someone else's code — scanning, brainstorming, security fixes, and refactoring.</p>
   <span class="example-link">View Example →</span>
