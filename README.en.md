@@ -36,6 +36,16 @@ When using AI (Copilot, Claude, Cursor…) for development:
 
 ## Get Started in 30 Seconds
 
+### Option 1: Install via Agent Skills (Recommended)
+
+```bash
+npx skills add lordmos/dev-crew
+```
+
+> Compatible with 44+ AI platforms (Claude Code, GitHub Copilot, Cursor, Codex, etc.). Automatically installs the DevCrew protocol into your agent. See [skills.sh](https://skills.sh).
+
+### Option 2: Install via CLI
+
 ```bash
 npm install -g @lordmos/dev-crew
 cd your-project
@@ -186,23 +196,21 @@ crew agents  # List all available specialists
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────┐
-│  Skills Layer                                │
-│  ┌──────────────┐  ┌──────────────────────┐ │
-│  │ CLI          │  │ MCP Server           │ │
-│  │ crew init    │  │ crew_init            │ │
-│  │ crew plan    │  │ crew_plan            │ │
-│  │ crew status  │  │ crew_status          │ │
-│  │ crew release │  │ crew_release         │ │
-│  └──────────────┘  └──────────────────────┘ │
-├─────────────────────────────────────────────┤
-│  Protocol Layer (core, zero tool dependency) │
-│  INSTRUCTIONS.md · PDEVI workflow ·          │
-│  File conventions · Communication rules      │
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│  Access Layer                                        │
+│  ┌───────────┐ ┌──────────┐ ┌─────────────────────┐ │
+│  │ Agent     │ │ CLI      │ │ MCP Server          │ │
+│  │ Skills    │ │ crew *   │ │ crew_*              │ │
+│  │ SKILL.md  │ │          │ │                     │ │
+│  └───────────┘ └──────────┘ └─────────────────────┘ │
+├─────────────────────────────────────────────────────┤
+│  Protocol Layer (core, zero tool dependency)         │
+│  INSTRUCTIONS.md · PDEVI workflow ·                  │
+│  File conventions · Communication rules              │
+└─────────────────────────────────────────────────────┘
 ```
 
-> Even without CLI/MCP, manually placing `INSTRUCTIONS.md` works. Skills make the workflow more efficient.
+> Three access methods: install to any agent via `npx skills add`, operate via CLI, or call programmatically via MCP Server. Even without any tools, manually placing `INSTRUCTIONS.md` works.
 
 ---
 

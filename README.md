@@ -36,6 +36,16 @@
 
 ## 30 秒上手
 
+### 方式一：通过 Agent Skills 安装（推荐）
+
+```bash
+npx skills add lordmos/dev-crew
+```
+
+> 兼容 44+ AI 平台（Claude Code、GitHub Copilot、Cursor、Codex 等），自动将 DevCrew 协议安装到你的 Agent。详见 [skills.sh](https://skills.sh)。
+
+### 方式二：通过 CLI 安装
+
 ```bash
 npm install -g @lordmos/dev-crew
 cd your-project
@@ -186,22 +196,20 @@ crew agents  # 查看所有可用专家
 ## 架构
 
 ```
-┌─────────────────────────────────────────────┐
-│  Skills 层                                   │
-│  ┌──────────────┐  ┌──────────────────────┐ │
-│  │ CLI          │  │ MCP Server           │ │
-│  │ crew init    │  │ crew_init            │ │
-│  │ crew plan    │  │ crew_plan            │ │
-│  │ crew status  │  │ crew_status          │ │
-│  │ crew release │  │ crew_release         │ │
-│  └──────────────┘  └──────────────────────┘ │
-├─────────────────────────────────────────────┤
-│  协议层（核心，零工具依赖）                    │
-│  INSTRUCTIONS.md · PDEVI 工作流 · 文件约定    │
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│  接入层                                              │
+│  ┌───────────┐ ┌──────────┐ ┌─────────────────────┐ │
+│  │ Agent     │ │ CLI      │ │ MCP Server          │ │
+│  │ Skills    │ │ crew *   │ │ crew_*              │ │
+│  │ SKILL.md  │ │          │ │                     │ │
+│  └───────────┘ └──────────┘ └─────────────────────┘ │
+├─────────────────────────────────────────────────────┤
+│  协议层（核心，零工具依赖）                            │
+│  INSTRUCTIONS.md · PDEVI 工作流 · 文件约定             │
+└─────────────────────────────────────────────────────┘
 ```
 
-> 即使不装 CLI/MCP，手动放入 `INSTRUCTIONS.md` 也能工作。Skills 让流程更高效。
+> 三种接入方式：通过 `npx skills add` 安装到任意 Agent、通过 CLI 命令操作、通过 MCP Server 程序化调用。即使不装任何工具，手动放入 `INSTRUCTIONS.md` 也能工作。
 
 ---
 

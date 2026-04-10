@@ -34,8 +34,8 @@ features:
     title: Files as Memory
     details: Each agent maintains independent long-term memory and work logs — context auto-recovers across sessions.
   - icon: ⚡
-    title: Skills + MCP
-    details: Built-in skills (init, plan, status, release) accessible via CLI and MCP Server — AI agents can call them directly.
+    title: Skills Ecosystem
+    details: One-command install to 44+ AI platforms via npx skills add. Also supports CLI and MCP Server for direct invocation.
 ---
 
 <div class="home-examples">

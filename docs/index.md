@@ -34,8 +34,8 @@ features:
     title: 文件即记忆
     details: 每个 Agent 维护独立的长期记忆和工作记录，跨会话自动恢复上下文。
   - icon: ⚡
-    title: Skills + MCP
-    details: 提供 init / plan / status / release 等 Skill，CLI 和 MCP Server 双通道，AI Agent 可直接调用。
+    title: Skills 生态
+    details: 通过 npx skills add 一键安装到 44+ AI 平台，同时支持 CLI 和 MCP Server 双通道调用。
 ---
 
 <div class="home-examples">

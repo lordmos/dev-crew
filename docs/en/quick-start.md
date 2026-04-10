@@ -2,6 +2,18 @@
 
 ## Install
 
+### Option 1: Install via Agent Skills (Recommended)
+
+```bash
+npx skills add lordmos/dev-crew
+```
+
+Automatically installs the DevCrew protocol into your AI agent (supports Claude Code, GitHub Copilot, Cursor, Codex, and 44+ platforms).
+
+> See [skills.sh](https://skills.sh)
+
+### Option 2: Install via CLI
+
 ```bash
 npm install -g @lordmos/dev-crew
 ```

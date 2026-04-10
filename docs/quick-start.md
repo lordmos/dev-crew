@@ -2,6 +2,18 @@
 
 ## 安装
 
+### 方式一：通过 Agent Skills 安装（推荐）
+
+```bash
+npx skills add lordmos/dev-crew
+```
+
+自动将 DevCrew 协议安装到你的 AI Agent（支持 Claude Code、GitHub Copilot、Cursor、Codex 等 44+ 平台）。
+
+> 详见 [skills.sh](https://skills.sh)
+
+### 方式二：通过 CLI 安装
+
 ```bash
 npm install -g @lordmos/dev-crew
 ```
