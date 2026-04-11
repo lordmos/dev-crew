@@ -1,5 +1,5 @@
 ---
-name: crew:status
+name: crew.status
 user-invocable: true
 description: View current DevCrew workspace status — active changes, current phase, progress, and open blockers.
 metadata:
@@ -8,6 +8,15 @@ metadata:
 ---
 
 # crew status — 查看工作区状态
+
+## Pre-flight Check
+
+Run the `check.sh` script in this skill's directory:
+
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
+- If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
+
+---
 
 展示当前 DevCrew 工作区的概览：活跃变更、各变更所处阶段、进度和待解决的 blocker。
 

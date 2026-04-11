@@ -1,5 +1,5 @@
 ---
-name: crew:release
+name: crew.release
 user-invocable: true
 description: Archive completed changes and consolidate agent memory. Moves change artifacts to archive and updates each agent's long-term knowledge base.
 metadata:
@@ -8,6 +8,15 @@ metadata:
 ---
 
 # crew release — 归档变更与记忆整合
+
+## Pre-flight Check
+
+Run the `check.sh` script in this skill's directory:
+
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
+- If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
+
+---
 
 将已完成的变更归档，并触发各 Agent 的记忆整合——从工作记录中提炼经验，写入长期记忆文件。
 

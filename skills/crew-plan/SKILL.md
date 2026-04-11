@@ -1,5 +1,5 @@
 ---
-name: crew:plan
+name: crew.plan
 user-invocable: true
 description: Create a new change proposal and enter the Plan phase of the PDEVI workflow. Supports Standard, Express, and Prototype modes.
 metadata:
@@ -8,6 +8,15 @@ metadata:
 ---
 
 # crew plan — 创建变更计划
+
+## Pre-flight Check
+
+Run the `check.sh` script in this skill's directory:
+
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
+- If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
+
+---
 
 创建一个新的变更（change），自动推断工作模式，进入 PDEVI 工作流的 Plan 阶段。
 

@@ -1,5 +1,5 @@
 ---
-name: crew:checkpoint
+name: crew.checkpoint
 user-invocable: true
 description: Run a phase audit and consistency check on the current change. Validates all checklist items before advancing to the next PDEVI phase.
 metadata:
@@ -8,6 +8,15 @@ metadata:
 ---
 
 # crew checkpoint — 阶段审计与一致性检查
+
+## Pre-flight Check
+
+Run the `check.sh` script in this skill's directory:
+
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
+- If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
+
+---
 
 对当前活跃变更执行阶段审计，检查所有审计项是否通过，确保一致性后推进到下一阶段。
 

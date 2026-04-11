@@ -1,5 +1,5 @@
 ---
-name: crew:init
+name: crew.init
 user-invocable: true
 description: Initialize a DevCrew workspace and activate the full AI team orchestration protocol — PDEVI workflow, persistent memory, checkpoint-based quality control.
 metadata:
@@ -8,6 +8,15 @@ metadata:
 ---
 
 # crew:init — 初始化 DevCrew 工作区并激活协议
+
+## Pre-flight Check
+
+Run the `check.sh` script in this skill's directory:
+
+- If `STATUS: INITIALIZED` → Workspace already exists. Tell the user: "DevCrew 工作区已初始化，无需重复执行。可使用 /crew.status 查看当前状态。" **Do not proceed.**
+- If `STATUS: NOT_INITIALIZED` → Continue with initialization below.
+
+---
 
 初始化 DevCrew 多 Agent 协作工作区，并加载完整的团队编排协议。这是使用 DevCrew 的入口 Skill。
 
