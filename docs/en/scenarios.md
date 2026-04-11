@@ -31,6 +31,8 @@ AI:  [OK] Requirements confirmed. Starting technical design...
 
 **Key**: Describe your idea + confirm requirements. AI handles Plan → Design → Execute → Verify automatically.
 
+> 📌 **Commands**: `/crew.init` initialize → `/crew.plan` create change → `/crew.status` check progress → `/crew.checkpoint` phase audit
+
 ---
 
 ## Existing PRD — "Here's the PRD, execute it"
@@ -46,6 +48,8 @@ AI:  [OK] Updated. Starting design...
 ```
 
 **Key**: Import existing requirements → AI refines into proposal → you confirm/adjust → auto-proceeds.
+
+> 📌 **Commands**: `/crew.init` initialize → `/crew.plan` import & create change → `/crew.checkpoint` review output
 
 ---
 
@@ -69,6 +73,8 @@ AI:  [PdM] Got it, creating change add-api-auth...
 
 **Key**: AI scans code to establish baseline, then you describe what to do next.
 
+> 📌 **Commands**: `/crew.init` initialize → `/crew.status` review overview → `/crew.plan` create change
+
 ---
 
 ## Brainstorm — "Let's discuss the approach"
@@ -87,6 +93,8 @@ AI:  Creating change migrate-to-zustand, mode: Standard
 ```
 
 **Key**: Explore mode discusses without changing code. When you decide, it transitions to a formal change.
+
+> 📌 **Commands**: `/crew.status` for project context → natural language discussion → `/crew.plan` when ready
 
 ---
 
@@ -115,6 +123,8 @@ AI:  [OK] Change fix-403-on-login complete.
 ```
 
 **Key**: Express mode skips Design — Plan → Execute → Verify directly.
+
+> 📌 **Commands**: `/crew.plan` create Express change → `/crew.status` check fix progress
 
 ---
 
@@ -145,6 +155,8 @@ AI:  Design:
 ```
 
 **Key**: Refactoring uses Standard full workflow (includes Design) to ensure a sound approach.
+
+> 📌 **Commands**: `/crew.plan` create change → `/crew.checkpoint` phase audit → `/crew.release` archive
 
 ---
 
@@ -180,6 +192,8 @@ AI:  [OK] Upgrading to Standard mode. Adding test strategy, entering Verify...
 
 **Key**: Prototype skips Verify/Iterate for fast validation. Say "let's do it properly" to upgrade to Standard.
 
+> 📌 **Commands**: `/crew.plan` create Prototype change → `/crew.status` check prototype progress
+
 ---
 
 ## Learn Codebase — "Help me understand this code"
@@ -205,6 +219,8 @@ AI:  [Continues with deeper explanation...]
 ```
 
 **Key**: Explore mode is for pure exploration — no changes created, no files modified.
+
+> 📌 **Commands**: `/crew.status` view project structure → `/crew.agents` see available specialist roles
 
 ---
 

@@ -31,6 +31,8 @@ AI: [OK] 需求已确认。开始技术方案设计...
 
 **关键**：你只需要描述想法 + 确认需求，AI 自动走完 Plan → Design → Execute → Verify。
 
+> 📌 **推荐指令**：`/crew.init` 初始化工作区 → `/crew.plan` 创建变更 → `/crew.status` 查看进度 → `/crew.checkpoint` 阶段审计
+
 ---
 
 ## 已有 PRD — "需求文档在这，执行吧"
@@ -46,6 +48,8 @@ AI: [OK] 已更新。开始设计...
 ```
 
 **关键**：导入已有需求 → AI 提炼成 proposal → 你确认/补充 → 自动推进。
+
+> 📌 **推荐指令**：`/crew.init` 初始化 → `/crew.plan` 导入并创建变更 → `/crew.checkpoint` 检查产出
 
 ---
 
@@ -69,6 +73,8 @@ AI: [PdM] 好的，创建变更 add-api-auth...
 
 **关键**：AI 先扫描代码建立基线，然后你直接描述要做什么。
 
+> 📌 **推荐指令**：`/crew.init` 初始化 → `/crew.status` 查看项目概况 → `/crew.plan` 创建变更
+
 ---
 
 ## 头脑风暴 — "讨论一下方案"
@@ -87,6 +93,8 @@ AI: 好的。创建变更 migrate-to-zustand，模式: Standard
 ```
 
 **关键**：探索模式只讨论不改代码。讨论出结论后随时转入正式变更。
+
+> 📌 **推荐指令**：`/crew.status` 了解项目现状 → 自然语言讨论 → 决定后 `/crew.plan` 创建变更
 
 ---
 
@@ -115,6 +123,8 @@ AI: [OK] 变更 fix-403-on-login 完成。
 ```
 
 **关键**：Express 模式跳过 Design，直接 Plan → Execute → Verify。
+
+> 📌 **推荐指令**：`/crew.plan` 创建 Express 变更 → `/crew.status` 查看修复进度
 
 ---
 
@@ -145,6 +155,8 @@ AI: Design 阶段:
 ```
 
 **关键**：重构走 Standard 完整流程（有 Design），确保方案合理。
+
+> 📌 **推荐指令**：`/crew.plan` 创建变更 → `/crew.checkpoint` 阶段审计 → `/crew.release` 归档完成
 
 ---
 
@@ -180,6 +192,8 @@ AI: [OK] 升级为 Standard 模式。补充测试策略，进入 Verify...
 
 **关键**：Prototype 跳过 Verify/Iterate，快速验证想法。说"正式做吧"可升级为 Standard。
 
+> 📌 **推荐指令**：`/crew.plan` 创建 Prototype 变更 → `/crew.status` 查看原型进度
+
 ---
 
 ## 学习代码库 — "帮我理解这段代码"
@@ -205,6 +219,8 @@ AI: [继续深入解释...]
 ```
 
 **关键**：探索模式用于纯探索，不创建变更不修改文件。
+
+> 📌 **推荐指令**：`/crew.status` 查看项目结构 → `/crew.agents` 查看可用专家角色
 
 ---
 
