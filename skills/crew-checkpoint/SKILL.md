@@ -1,5 +1,5 @@
 ---
-name: crew-checkpoint
+name: crew.checkpoint
 user-invocable: true
 description: Run a phase audit and consistency check on the current change. Validates all checklist items before advancing to the next PDEVI phase.
 metadata:

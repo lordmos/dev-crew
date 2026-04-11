@@ -1,5 +1,5 @@
 ---
-name: crew-status
+name: crew.status
 user-invocable: true
 description: View current DevCrew workspace status — active changes, current phase, progress, and open blockers.
 metadata:

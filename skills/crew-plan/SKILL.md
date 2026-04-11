@@ -1,5 +1,5 @@
 ---
-name: crew-plan
+name: crew.plan
 user-invocable: true
 description: Create a new change proposal and enter the Plan phase of the PDEVI workflow. Supports Standard, Express, and Prototype modes.
 metadata:

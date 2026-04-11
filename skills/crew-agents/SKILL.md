@@ -1,5 +1,5 @@
 ---
-name: crew-agents
+name: crew.agents
 user-invocable: true
 description: List available domain specialists that can be activated for the DevCrew team — covering game dev, security, DevOps, AI/ML, and more.
 metadata:

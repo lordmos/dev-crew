@@ -1,5 +1,5 @@
 ---
-name: crew-init
+name: crew.init
 user-invocable: true
 description: Initialize a DevCrew workspace and activate the full AI team orchestration protocol — PDEVI workflow, persistent memory, checkpoint-based quality control.
 metadata:
@@ -7,7 +7,7 @@ metadata:
   version: 0.5.0
 ---
 
-# crew-init — 初始化 DevCrew 工作区并激活协议
+# crew.init — 初始化 DevCrew 工作区并激活协议
 
 ## Pre-flight Check
 
