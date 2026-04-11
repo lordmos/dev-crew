@@ -2,8 +2,6 @@
 
 ## 安装
 
-### 方式一：通过 Agent Skills 安装（推荐）
-
 ```bash
 npx skills add lordmos/dev-crew
 ```
@@ -12,31 +10,15 @@ npx skills add lordmos/dev-crew
 
 > 详见 [skills.sh](https://skills.sh)
 
-### 方式二：通过 CLI 安装
-
-```bash
-npm install -g @lordmos/dev-crew
-```
-
-> 需要 Node.js 18+
-
 ## 初始化项目
 
-```bash
-cd your-project
-crew init
+安装完成后，在 AI 对话中输入：
+
+```
+/crew-init
 ```
 
-针对特定平台（自动写入平台指令文件）：
-
-```bash
-crew init --platform copilot    # → .github/copilot-instructions.md
-crew init --platform cursor     # → .cursorrules
-crew init --platform claude     # → CLAUDE.md
-crew init -p copilot cursor     # 多平台同时适配
-```
-
-`crew init` 会创建：
+AI 会自动创建工作区：
 
 ```
 your-project/
@@ -52,7 +34,7 @@ your-project/
 
 ## 开始工作
 
-初始化完成后，打开 AI 对话工具（Copilot、Claude、Cursor 等），直接用自然语言描述需求即可。AI 会自动读取 `INSTRUCTIONS.md`，按 PDEVI 流程工作：
+初始化完成后，直接用自然语言描述需求即可。AI 会自动按 PDEVI 流程工作：
 
 ```
 你: 我要给 API 加认证中间件
@@ -74,18 +56,4 @@ AI: [OK] 变更 add-api-auth 完成。
 
 你只需确认两次（需求 + 结果），其余全部自动。
 
-> 💡 除了自然语言，你也可以通过 CLI（`crew plan`）或 MCP Server 触发 Skills。详见[使用指南](./guide)。
-
-## 查看可用专家
-
-```bash
-crew agents
-```
-
-在 `dev-crew.yaml` 中按需激活：
-
-```yaml
-specialists:
-  - game-designer
-  - security-engineer
-```
+> 📖 下一步：阅读 [使用指南](./guide) 了解所有 Skills 和工作模式。

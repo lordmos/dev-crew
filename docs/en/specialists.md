@@ -62,6 +62,6 @@ specialists:
   - security-engineer
 ```
 
-```bash
-crew agents  # List all available specialists
+```
+/crew-agents  # List all available specialists in your AI chat
 ```

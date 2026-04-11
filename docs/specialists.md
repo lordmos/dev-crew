@@ -62,6 +62,6 @@ specialists:
   - security-engineer
 ```
 
-```bash
-crew agents  # 查看所有可用专家
+```
+/crew-agents  # 在 AI 对话中查看所有可用专家
 ```

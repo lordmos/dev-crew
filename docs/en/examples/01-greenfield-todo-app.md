@@ -13,11 +13,7 @@
 You: Help me initialize DevCrew, I'm using Copilot
 ```
 
-```bash
-crew init --platform copilot
-```
-
-The AI created these files:
+The AI runs `/crew-init` and creates these files:
 
 ```
 project-root/

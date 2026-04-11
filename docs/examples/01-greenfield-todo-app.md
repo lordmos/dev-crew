@@ -13,11 +13,7 @@
 小明: 帮我初始化 DevCrew，我用的是 Copilot
 ```
 
-```bash
-crew init --platform copilot
-```
-
-AI 创建了这些文件：
+AI 执行 `/crew-init`，创建了这些文件：
 
 ```
 project-root/

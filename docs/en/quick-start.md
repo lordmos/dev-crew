@@ -2,8 +2,6 @@
 
 ## Install
 
-### Option 1: Install via Agent Skills (Recommended)
-
 ```bash
 npx skills add lordmos/dev-crew
 ```
@@ -12,31 +10,15 @@ Automatically installs the DevCrew protocol into your AI agent (supports Claude 
 
 > See [skills.sh](https://skills.sh)
 
-### Option 2: Install via CLI
-
-```bash
-npm install -g @lordmos/dev-crew
-```
-
-> Requires Node.js 18+
-
 ## Initialize Your Project
 
-```bash
-cd your-project
-crew init
+After install, type in your AI chat:
+
+```
+/crew-init
 ```
 
-For specific platforms (auto-creates platform instruction files):
-
-```bash
-crew init --platform copilot    # → .github/copilot-instructions.md
-crew init --platform cursor     # → .cursorrules
-crew init --platform claude     # → CLAUDE.md
-crew init -p copilot cursor     # Multiple platforms at once
-```
-
-`crew init` creates:
+The AI will create the workspace:
 
 ```
 your-project/
@@ -52,7 +34,7 @@ your-project/
 
 ## Start Working
 
-After initialization, open your AI assistant (Copilot, Claude, Cursor, etc.) and describe what you need in natural language. The AI automatically reads `INSTRUCTIONS.md` and follows the PDEVI workflow:
+After initialization, describe what you need in natural language. The AI automatically follows the PDEVI workflow:
 
 ```
 You: I need to add auth middleware to the API
@@ -74,18 +56,4 @@ AI:  [OK] Change add-api-auth complete.
 
 You only confirm twice (requirements + results). Everything else is automatic.
 
-> 💡 Besides natural language, you can also trigger Skills via CLI (`crew plan`) or MCP Server. See the [Guide](./guide) for details.
-
-## View Available Specialists
-
-```bash
-crew agents
-```
-
-Activate in `dev-crew.yaml`:
-
-```yaml
-specialists:
-  - game-designer
-  - security-engineer
-```
+> 📖 Next: Read the [Guide](./guide) to learn about all Skills and work modes.

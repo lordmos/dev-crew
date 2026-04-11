@@ -36,32 +36,13 @@
 
 ## 30 秒上手
 
-### 方式一：通过 Agent Skills 安装（推荐）
-
 ```bash
 npx skills add lordmos/dev-crew
 ```
 
 > 兼容 44+ AI 平台（Claude Code、GitHub Copilot、Cursor、Codex 等），自动将 DevCrew 协议安装到你的 Agent。详见 [skills.sh](https://skills.sh)。
 
-### 方式二：通过 CLI 安装
-
-```bash
-npm install -g @lordmos/dev-crew
-cd your-project
-crew init --platform copilot   # 或 cursor / claude
-```
-
-三步完成——INSTRUCTIONS.md 自动放到你的 AI 平台读取的位置，AI 立刻获得多 Agent 团队编排能力。
-
-| 平台 | 命令 | 指令文件位置 |
-|------|------|-------------|
-| **GitHub Copilot** | `crew init -p copilot` | `.github/copilot-instructions.md` |
-| **Cursor** | `crew init -p cursor` | `.cursorrules` |
-| **Claude Code** | `crew init -p claude` | `CLAUDE.md` |
-| **通用** | `crew init` | `INSTRUCTIONS.md`（手动引用） |
-
-> 可同时指定多个平台：`crew init -p copilot cursor`
+安装后在 AI 对话中使用 `/crew-init` 初始化工作区，即刻开始。
 
 ---
 
@@ -89,7 +70,9 @@ AI: [OK] 变更 add-api-auth 完成。
 
 ---
 
-## `crew init` 做了什么
+## `/crew-init` 做了什么
+
+> 安装 Skills 后，在 AI 对话中输入 `/crew-init` 即可执行初始化。
 
 ```
 your-project/
@@ -156,7 +139,7 @@ specialists:
 ```
 
 ```bash
-crew agents  # 查看所有可用专家
+/crew-agents  # 在 AI 对话中查看所有可用专家
 ```
 
 > 完整列表见 [领域专家目录](agents/README.md)
@@ -165,14 +148,16 @@ crew agents  # 查看所有可用专家
 
 ## Skills
 
-| Skill | CLI | MCP Tool | 用途 |
-|-------|-----|----------|------|
-| **init** | `crew init` | `crew_init` | 初始化工作区 + Agent 记忆文件 |
-| **plan** | `crew plan <名称>` | `crew_plan` | 创建变更并开始工作 |
-| **status** | `crew status` | `crew_status` | 查看当前进度 |
-| **checkpoint** | `crew checkpoint` | `crew_checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
-| **release** | `crew release` | `crew_release` | 归档变更 + 记忆整合 |
-| **agents** | `crew agents` | `crew_agents` | 列出可用领域专家 |
+安装后即可在 AI 对话中使用以下 Skill：
+
+| Skill | 调用方式 | 用途 |
+|-------|---------|------|
+| **init** | `/crew-init` | 初始化工作区 + Agent 记忆文件 |
+| **plan** | `/crew-plan` | 创建变更并开始工作 |
+| **status** | `/crew-status` | 查看当前进度 |
+| **checkpoint** | `/crew-checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
+| **release** | `/crew-release` | 归档变更 + 记忆整合 |
+| **agents** | `/crew-agents` | 列出可用领域专家 |
 
 > 自然语言同样有效——"做个检查点"，AI 自动调用 checkpoint skill
 
@@ -198,18 +183,18 @@ crew agents  # 查看所有可用专家
 ```
 ┌─────────────────────────────────────────────────────┐
 │  接入层                                              │
-│  ┌───────────┐ ┌──────────┐ ┌─────────────────────┐ │
-│  │ Agent     │ │ CLI      │ │ MCP Server          │ │
-│  │ Skills    │ │ crew *   │ │ crew_*              │ │
-│  │ SKILL.md  │ │          │ │                     │ │
-│  └───────────┘ └──────────┘ └─────────────────────┘ │
+│  ┌───────────────────────┐ ┌───────────────────────┐ │
+│  │ Agent Skills          │ │ MCP Server            │ │
+│  │ /crew-init            │ │ crew_*                │ │
+│  │ /crew-plan ...        │ │                       │ │
+│  └───────────────────────┘ └───────────────────────┘ │
 ├─────────────────────────────────────────────────────┤
 │  协议层（核心，零工具依赖）                            │
 │  INSTRUCTIONS.md · PDEVI 工作流 · 文件约定             │
 └─────────────────────────────────────────────────────┘
 ```
 
-> 三种接入方式：通过 `npx skills add` 安装到任意 Agent、通过 CLI 命令操作、通过 MCP Server 程序化调用。即使不装任何工具，手动放入 `INSTRUCTIONS.md` 也能工作。
+> 两种接入方式：通过 `npx skills add` 安装到任意 Agent（推荐）、通过 MCP Server 程序化调用。即使不装任何工具，手动放入 `INSTRUCTIONS.md` 也能工作。
 
 ---
 
@@ -217,9 +202,12 @@ crew agents  # 查看所有可用专家
 
 | 文档 | 说明 |
 |------|------|
-| [用户手册](docs/USER-MANUAL.md) | 8 种场景详细指南 |
-| [最佳实践](docs/examples/) | 场景串联示例 |
+| [快速开始](docs/quick-start.md) | 安装、初始化、第一次使用 |
+| [使用指南](docs/guide.md) | Skills、工作模式、团队、配置 |
+| [使用场景](docs/scenarios.md) | 8 种场景详解 + 常见问题 |
+| [核心概念](docs/concepts.md) | PDEVI 工作流、文件即记忆 |
 | [领域专家](agents/README.md) | 29 位专家 · 10 个领域 |
+| [最佳实践](docs/examples/) | 场景串联示例 |
 
 ## 贡献
 

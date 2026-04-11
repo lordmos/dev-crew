@@ -35,7 +35,7 @@ features:
     details: Each agent maintains independent long-term memory and work logs — context auto-recovers across sessions.
   - icon: ⚡
     title: Skills Ecosystem
-    details: One-command install to 44+ AI platforms via npx skills add. Also supports CLI and MCP Server for direct invocation.
+    details: One-command install to 44+ AI platforms via npx skills add. Use /crew-init, /crew-plan and other skills directly in your AI chat.
 ---
 
 <div class="home-examples">

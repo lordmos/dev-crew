@@ -36,32 +36,13 @@ When using AI (Copilot, Claude, Cursor…) for development:
 
 ## Get Started in 30 Seconds
 
-### Option 1: Install via Agent Skills (Recommended)
-
 ```bash
 npx skills add lordmos/dev-crew
 ```
 
 > Compatible with 44+ AI platforms (Claude Code, GitHub Copilot, Cursor, Codex, etc.). Automatically installs the DevCrew protocol into your agent. See [skills.sh](https://skills.sh).
 
-### Option 2: Install via CLI
-
-```bash
-npm install -g @lordmos/dev-crew
-cd your-project
-crew init --platform copilot   # or cursor / claude
-```
-
-Three steps — INSTRUCTIONS.md is auto-placed where your AI platform reads it. The AI instantly gains multi-agent team orchestration capabilities.
-
-| Platform | Command | Instruction File |
-|----------|---------|-----------------|
-| **GitHub Copilot** | `crew init -p copilot` | `.github/copilot-instructions.md` |
-| **Cursor** | `crew init -p cursor` | `.cursorrules` |
-| **Claude Code** | `crew init -p claude` | `CLAUDE.md` |
-| **Generic** | `crew init` | `INSTRUCTIONS.md` (reference manually) |
-
-> Multiple platforms at once: `crew init -p copilot cursor`
+After install, use `/crew-init` in your AI chat to initialize the workspace and start immediately.
 
 ---
 
@@ -89,7 +70,9 @@ AI:  [OK] Change add-api-auth complete.
 
 ---
 
-## What `crew init` Creates
+## What `/crew-init` Creates
+
+> After installing Skills, type `/crew-init` in your AI chat to initialize.
 
 ```
 your-project/
@@ -156,7 +139,7 @@ specialists:
 ```
 
 ```bash
-crew agents  # List all available specialists
+/crew-agents  # View all available specialists in your AI chat
 ```
 
 > See the full [Specialist Directory](agents/README.md)
@@ -165,14 +148,16 @@ crew agents  # List all available specialists
 
 ## Skills
 
-| Skill | CLI | MCP Tool | Purpose |
-|-------|-----|----------|---------|
-| **init** | `crew init` | `crew_init` | Initialize workspace + agent memory files |
-| **plan** | `crew plan <name>` | `crew_plan` | Create a change and start working |
-| **status** | `crew status` | `crew_status` | Check current progress |
-| **checkpoint** | `crew checkpoint` | `crew_checkpoint` | Phase audit + consistency check + memory sync |
-| **release** | `crew release` | `crew_release` | Archive changes + consolidate memory |
-| **agents** | `crew agents` | `crew_agents` | List available specialists |
+After install, use these skills in your AI chat:
+
+| Skill | Invoke | Purpose |
+|-------|--------|---------|
+| **init** | `/crew-init` | Initialize workspace + agent memory files |
+| **plan** | `/crew-plan` | Create a change and start working |
+| **status** | `/crew-status` | Check current progress |
+| **checkpoint** | `/crew-checkpoint` | Phase audit + consistency check + memory sync |
+| **release** | `/crew-release` | Archive changes + consolidate memory |
+| **agents** | `/crew-agents` | List available specialists |
 
 > Natural language works too — "run a checkpoint" triggers the checkpoint skill automatically
 
@@ -198,11 +183,11 @@ crew agents  # List all available specialists
 ```
 ┌─────────────────────────────────────────────────────┐
 │  Access Layer                                        │
-│  ┌───────────┐ ┌──────────┐ ┌─────────────────────┐ │
-│  │ Agent     │ │ CLI      │ │ MCP Server          │ │
-│  │ Skills    │ │ crew *   │ │ crew_*              │ │
-│  │ SKILL.md  │ │          │ │                     │ │
-│  └───────────┘ └──────────┘ └─────────────────────┘ │
+│  ┌───────────────────────┐ ┌───────────────────────┐ │
+│  │ Agent Skills          │ │ MCP Server            │ │
+│  │ /crew-init            │ │ crew_*                │ │
+│  │ /crew-plan ...        │ │                       │ │
+│  └───────────────────────┘ └───────────────────────┘ │
 ├─────────────────────────────────────────────────────┤
 │  Protocol Layer (core, zero tool dependency)         │
 │  INSTRUCTIONS.md · PDEVI workflow ·                  │
@@ -210,7 +195,7 @@ crew agents  # List all available specialists
 └─────────────────────────────────────────────────────┘
 ```
 
-> Three access methods: install to any agent via `npx skills add`, operate via CLI, or call programmatically via MCP Server. Even without any tools, manually placing `INSTRUCTIONS.md` works.
+> Two access methods: install to any agent via `npx skills add` (recommended), or call programmatically via MCP Server. Even without any tools, manually placing `INSTRUCTIONS.md` works.
 
 ---
 
@@ -218,9 +203,12 @@ crew agents  # List all available specialists
 
 | Doc | Description |
 |-----|-------------|
-| [User Manual](docs/USER-MANUAL.md) | Detailed guide for 8 scenarios |
-| [Best Practices](docs/examples/) | Scenario walkthrough examples |
+| [Quick Start](docs/en/quick-start.md) | Install, init, first use |
+| [Guide](docs/en/guide.md) | Skills, work modes, team, config |
+| [Use Cases](docs/en/scenarios.md) | 8 scenarios + FAQ |
+| [Core Concepts](docs/en/concepts.md) | PDEVI workflow, files as memory |
 | [Specialists](agents/README.md) | 29 specialists · 10 domains |
+| [Best Practices](docs/en/examples/) | Scenario walkthrough examples |
 
 ## Contributing
 

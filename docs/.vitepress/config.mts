@@ -47,8 +47,8 @@ export default withMermaid(defineConfig({
             text: '深入了解',
             items: [
               { text: '核心概念', link: '/concepts' },
-              { text: '领域专家', link: '/specialists' },
               { text: '使用场景', link: '/scenarios' },
+              { text: '领域专家', link: '/specialists' },
             ],
           },
           {
@@ -81,8 +81,8 @@ export default withMermaid(defineConfig({
             text: 'Learn More',
             items: [
               { text: 'Core Concepts', link: '/en/concepts' },
-              { text: 'Specialists', link: '/en/specialists' },
               { text: 'Use Cases', link: '/en/scenarios' },
+              { text: 'Specialists', link: '/en/specialists' },
             ],
           },
           {
