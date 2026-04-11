@@ -27,10 +27,10 @@ Common natural language triggers:
 Use skill commands directly in your AI chat:
 
 ```
-/crew-plan        # Create a change plan
-/crew-status      # Check progress
-/crew-checkpoint  # Phase audit
-/crew-release     # Archive changes
+/crew.plan        # Create a change plan
+/crew.status      # Check progress
+/crew.checkpoint  # Phase audit
+/crew.release     # Archive changes
 ```
 
 > **Mix and match**: Use natural language for daily collaboration, skill commands for quick operations.
@@ -43,12 +43,12 @@ Use these skill commands in your AI chat after installation:
 
 | Skill | Command | Purpose |
 |-------|---------|---------|
-| **init** | `/crew-init` | Initialize workspace + agent memory files |
-| **plan** | `/crew-plan` | Create a change and start working |
-| **status** | `/crew-status` | Check current progress |
-| **checkpoint** | `/crew-checkpoint` | Phase audit + consistency check + memory sync |
-| **release** | `/crew-release` | Archive changes + consolidate memory |
-| **agents** | `/crew-agents` | List available specialists |
+| **init** | `/crew.init` | Initialize workspace + agent memory files |
+| **plan** | `/crew.plan` | Create a change and start working |
+| **status** | `/crew.status` | Check current progress |
+| **checkpoint** | `/crew.checkpoint` | Phase audit + consistency check + memory sync |
+| **release** | `/crew.release` | Archive changes + consolidate memory |
+| **agents** | `/crew.agents` | List available specialists |
 
 > Natural language works too — "run a checkpoint" triggers the checkpoint skill
 

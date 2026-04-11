@@ -15,7 +15,7 @@ Automatically installs the DevCrew protocol into your AI agent (supports Claude 
 After install, type in your AI chat:
 
 ```
-/crew-init
+/crew.init
 ```
 
 The AI will create the workspace:

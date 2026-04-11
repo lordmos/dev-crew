@@ -63,5 +63,5 @@ specialists:
 ```
 
 ```
-/crew-agents  # List all available specialists in your AI chat
+/crew.agents  # List all available specialists in your AI chat
 ```

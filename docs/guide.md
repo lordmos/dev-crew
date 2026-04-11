@@ -27,10 +27,10 @@ AI: [PdM] 创建变更 add-api-auth，模式: Standard …
 在 AI 对话中直接使用 Skill 命令：
 
 ```
-/crew-plan      # 创建变更计划
-/crew-status    # 查看进度
-/crew-checkpoint  # 阶段审计
-/crew-release   # 归档变更
+/crew.plan      # 创建变更计划
+/crew.status    # 查看进度
+/crew.checkpoint  # 阶段审计
+/crew.release   # 归档变更
 ```
 
 > **两种方式可混合使用**：自然语言做日常协作，Skill 命令做快捷操作。
@@ -43,12 +43,12 @@ AI: [PdM] 创建变更 add-api-auth，模式: Standard …
 
 | Skill | 调用方式 | 用途 |
 |-------|---------|------|
-| **init** | `/crew-init` | 初始化工作区 + Agent 记忆文件 |
-| **plan** | `/crew-plan` | 创建变更并开始工作 |
-| **status** | `/crew-status` | 查看当前进度 |
-| **checkpoint** | `/crew-checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
-| **release** | `/crew-release` | 归档变更 + 记忆整合 |
-| **agents** | `/crew-agents` | 列出可用领域专家 |
+| **init** | `/crew.init` | 初始化工作区 + Agent 记忆文件 |
+| **plan** | `/crew.plan` | 创建变更并开始工作 |
+| **status** | `/crew.status` | 查看当前进度 |
+| **checkpoint** | `/crew.checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
+| **release** | `/crew.release` | 归档变更 + 记忆整合 |
+| **agents** | `/crew.agents` | 列出可用领域专家 |
 
 > 自然语言同样有效——"做个检查点"，AI 自动调用 checkpoint skill
 

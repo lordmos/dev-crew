@@ -13,7 +13,7 @@ metadata:
 
 Run the `check.sh` script in this skill's directory:
 
-- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew-init"
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
 - If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
 
 ---
@@ -49,13 +49,13 @@ crew_release(cwd: string, name?: string)
 
 ### 记忆整合映射
 
-| Agent | 记忆文件 | 提炼来源 |
-|-------|---------|---------|
-| PdM（产品经理） | `memory/pdm.md` | proposal.md |
-| Architect（架构师） | `memory/architect.md` | design.md |
-| Implementer（开发） | `memory/implementer.md` | impl-log.md |
-| Tester（测试） | `memory/tester.md` | test-report.md |
-| Reviewer（审查） | `memory/reviewer.md` | review-report.md |
+| Agent               | 记忆文件                | 提炼来源         |
+| ------------------- | ----------------------- | ---------------- |
+| PdM（产品经理）     | `memory/pdm.md`         | proposal.md      |
+| Architect（架构师） | `memory/architect.md`   | design.md        |
+| Implementer（开发） | `memory/implementer.md` | impl-log.md      |
+| Tester（测试）      | `memory/tester.md`      | test-report.md   |
+| Reviewer（审查）    | `memory/reviewer.md`    | review-report.md |
 
 每个 Agent 的记忆文件中追加整合条目，更新 `last_updated` 时间戳和 `changes_completed` 计数器。
 

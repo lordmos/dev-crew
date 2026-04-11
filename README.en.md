@@ -42,7 +42,7 @@ npx skills add lordmos/dev-crew
 
 > Compatible with 44+ AI platforms (Claude Code, GitHub Copilot, Cursor, Codex, etc.). Automatically installs the DevCrew protocol into your agent. See [skills.sh](https://skills.sh).
 
-After install, use `/crew-init` in your AI chat to initialize the workspace and start immediately.
+After install, use `/crew.init` in your AI chat to initialize the workspace and start immediately.
 
 ---
 
@@ -70,9 +70,9 @@ AI:  [OK] Change add-api-auth complete.
 
 ---
 
-## What `/crew-init` Creates
+## What `/crew.init` Creates
 
-> After installing Skills, type `/crew-init` in your AI chat to initialize.
+> After installing Skills, type `/crew.init` in your AI chat to initialize.
 
 ```
 your-project/
@@ -139,7 +139,7 @@ specialists:
 ```
 
 ```bash
-/crew-agents  # View all available specialists in your AI chat
+/crew.agents  # View all available specialists in your AI chat
 ```
 
 > See the full [Specialist Directory](agents/README.md)
@@ -152,12 +152,12 @@ After install, use these skills in your AI chat:
 
 | Skill | Invoke | Purpose |
 |-------|--------|---------|
-| **init** | `/crew-init` | Initialize workspace + agent memory files |
-| **plan** | `/crew-plan` | Create a change and start working |
-| **status** | `/crew-status` | Check current progress |
-| **checkpoint** | `/crew-checkpoint` | Phase audit + consistency check + memory sync |
-| **release** | `/crew-release` | Archive changes + consolidate memory |
-| **agents** | `/crew-agents` | List available specialists |
+| **init** | `/crew.init` | Initialize workspace + agent memory files |
+| **plan** | `/crew.plan` | Create a change and start working |
+| **status** | `/crew.status` | Check current progress |
+| **checkpoint** | `/crew.checkpoint` | Phase audit + consistency check + memory sync |
+| **release** | `/crew.release` | Archive changes + consolidate memory |
+| **agents** | `/crew.agents` | List available specialists |
 
 > Natural language works too — "run a checkpoint" triggers the checkpoint skill automatically
 
@@ -185,8 +185,8 @@ After install, use these skills in your AI chat:
 │  Access Layer                                        │
 │  ┌───────────────────────┐ ┌───────────────────────┐ │
 │  │ Agent Skills          │ │ MCP Server            │ │
-│  │ /crew-init            │ │ crew_*                │ │
-│  │ /crew-plan ...        │ │                       │ │
+│  │ /crew.init            │ │ crew_*                │ │
+│  │ /crew.plan ...        │ │                       │ │
 │  └───────────────────────┘ └───────────────────────┘ │
 ├─────────────────────────────────────────────────────┤
 │  Protocol Layer (core, zero tool dependency)         │

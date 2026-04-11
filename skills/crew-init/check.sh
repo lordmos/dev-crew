@@ -4,7 +4,7 @@
 
 if [ ! -d "dev-crew" ] || [ ! -f "INSTRUCTIONS.md" ]; then
   echo "STATUS: NOT_INITIALIZED"
-  echo "ACTION: Run /crew-init to create the workspace."
+  echo "ACTION: Run /crew.init to create the workspace."
   exit 1
 fi
 

@@ -13,7 +13,7 @@ metadata:
 
 Run the `check.sh` script in this skill's directory:
 
-- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew-init"
+- If `STATUS: NOT_INITIALIZED` → Stop. Tell the user: "DevCrew 工作区尚未初始化，请先运行 /crew.init"
 - If `STATUS: INITIALIZED` → Use the output as workspace context. Proceed below.
 
 ---
@@ -36,11 +36,11 @@ npx @lordmos/dev-crew plan <name> [options]
 
 **参数：**
 
-| 选项 | 说明 | 示例 |
-|------|------|------|
-| `<name>` | 变更名称（kebab-case） | `add-auth-middleware` |
-| `-d, --description` | 变更描述 | `-d "为 API 添加 JWT 认证"` |
-| `-m, --mode` | 工作模式 | `-m express` |
+| 选项                | 说明                   | 示例                        |
+| ------------------- | ---------------------- | --------------------------- |
+| `<name>`            | 变更名称（kebab-case） | `add-auth-middleware`       |
+| `-d, --description` | 变更描述               | `-d "为 API 添加 JWT 认证"` |
+| `-m, --mode`        | 工作模式               | `-m express`                |
 
 ### MCP Tool
 
@@ -52,11 +52,11 @@ crew_plan(cwd: string, name: string, description?: string, mode?: "standard" | "
 
 未显式指定模式时，自动推断：
 
-| 信号 | 推断模式 |
-|------|---------|
-| 描述含 fix / bug / hotfix / patch | **Express**（P → E → V） |
-| 描述含 spike / prototype / poc | **Prototype**（P → D → E） |
-| 其他 | **Standard**（P → D → E → V → I） |
+| 信号                              | 推断模式                          |
+| --------------------------------- | --------------------------------- |
+| 描述含 fix / bug / hotfix / patch | **Express**（P → E → V）          |
+| 描述含 spike / prototype / poc    | **Prototype**（P → D → E）        |
+| 其他                              | **Standard**（P → D → E → V → I） |
 
 ## 创建的文件
 

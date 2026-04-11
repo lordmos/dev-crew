@@ -15,7 +15,7 @@ npx skills add lordmos/dev-crew
 安装完成后，在 AI 对话中输入：
 
 ```
-/crew-init
+/crew.init
 ```
 
 AI 会自动创建工作区：

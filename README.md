@@ -42,7 +42,7 @@ npx skills add lordmos/dev-crew
 
 > 兼容 44+ AI 平台（Claude Code、GitHub Copilot、Cursor、Codex 等），自动将 DevCrew 协议安装到你的 Agent。详见 [skills.sh](https://skills.sh)。
 
-安装后在 AI 对话中使用 `/crew-init` 初始化工作区，即刻开始。
+安装后在 AI 对话中使用 `/crew.init` 初始化工作区，即刻开始。
 
 ---
 
@@ -70,9 +70,9 @@ AI: [OK] 变更 add-api-auth 完成。
 
 ---
 
-## `/crew-init` 做了什么
+## `/crew.init` 做了什么
 
-> 安装 Skills 后，在 AI 对话中输入 `/crew-init` 即可执行初始化。
+> 安装 Skills 后，在 AI 对话中输入 `/crew.init` 即可执行初始化。
 
 ```
 your-project/
@@ -139,7 +139,7 @@ specialists:
 ```
 
 ```bash
-/crew-agents  # 在 AI 对话中查看所有可用专家
+/crew.agents  # 在 AI 对话中查看所有可用专家
 ```
 
 > 完整列表见 [领域专家目录](agents/README.md)
@@ -152,12 +152,12 @@ specialists:
 
 | Skill | 调用方式 | 用途 |
 |-------|---------|------|
-| **init** | `/crew-init` | 初始化工作区 + Agent 记忆文件 |
-| **plan** | `/crew-plan` | 创建变更并开始工作 |
-| **status** | `/crew-status` | 查看当前进度 |
-| **checkpoint** | `/crew-checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
-| **release** | `/crew-release` | 归档变更 + 记忆整合 |
-| **agents** | `/crew-agents` | 列出可用领域专家 |
+| **init** | `/crew.init` | 初始化工作区 + Agent 记忆文件 |
+| **plan** | `/crew.plan` | 创建变更并开始工作 |
+| **status** | `/crew.status` | 查看当前进度 |
+| **checkpoint** | `/crew.checkpoint` | 阶段审计 + 一致性检查 + 记忆同步 |
+| **release** | `/crew.release` | 归档变更 + 记忆整合 |
+| **agents** | `/crew.agents` | 列出可用领域专家 |
 
 > 自然语言同样有效——"做个检查点"，AI 自动调用 checkpoint skill
 
@@ -185,8 +185,8 @@ specialists:
 │  接入层                                              │
 │  ┌───────────────────────┐ ┌───────────────────────┐ │
 │  │ Agent Skills          │ │ MCP Server            │ │
-│  │ /crew-init            │ │ crew_*                │ │
-│  │ /crew-plan ...        │ │                       │ │
+│  │ /crew.init            │ │ crew_*                │ │
+│  │ /crew.plan ...        │ │                       │ │
 │  └───────────────────────┘ └───────────────────────┘ │
 ├─────────────────────────────────────────────────────┤
 │  协议层（核心，零工具依赖）                            │
