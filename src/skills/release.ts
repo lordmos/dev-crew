@@ -76,6 +76,47 @@ export function release(input: ReleaseInput): SkillResult {
     archived.push(name);
   }
 
+  // Clean up resume.md — remove archived changes from active_changes
+  const resumePath = join(crewDir, "resume.md");
+  if (existsSync(resumePath)) {
+    let resume = readFileSync(resumePath, "utf-8");
+    const fmMatch = resume.match(/^---\n([\s\S]*?)\n---/);
+    if (fmMatch) {
+      const archivedSet = new Set(archived);
+      const yaml = fmMatch[1];
+      const lines = yaml.split("\n");
+      const newLines: string[] = [];
+      let skipEntry = false;
+      let hasEntries = false;
+
+      for (const line of lines) {
+        const nameMatch = line.match(/^\s*-\s*name:\s*(.+)/);
+        if (nameMatch) {
+          const name = nameMatch[1].trim().replace(/^["']|["']$/g, "");
+          if (archivedSet.has(name)) {
+            skipEntry = true;
+            continue;
+          }
+          skipEntry = false;
+          hasEntries = true;
+          newLines.push(line);
+        } else if (/^\s{4,}\S/.test(line) && skipEntry) {
+          continue;
+        } else {
+          skipEntry = false;
+          newLines.push(line);
+        }
+      }
+
+      let newYaml = newLines.join("\n");
+      if (!hasEntries) {
+        newYaml = newYaml.replace(/active_changes:\s*$/, "active_changes: []");
+      }
+      resume = `---\n${newYaml}\n---` + resume.slice(fmMatch[0].length);
+      writeFileSync(resumePath, resume);
+    }
+  }
+
   const details = [
     ...warnings,
     ...archived.map((n) => `归档: ${n}`),
@@ -138,7 +179,7 @@ function consolidateMemory(crewDir: string, changeNames: string[]): string[] {
       );
       memory = memory.replace(
         /changes_completed:\s*(\d+)/,
-        (_match, count) => `changes_completed: ${parseInt(count) + changeNames.length}`,
+        (_match, count) => `changes_completed: ${parseInt(count) + entries.length}`,
       );
     } else {
       memory = `---

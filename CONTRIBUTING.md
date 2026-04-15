@@ -58,19 +58,28 @@ test: 测试
 ## 项目结构
 
 ```
-├── INSTRUCTIONS.md     ← 核心交付物（用户放入项目的文件）
+├── src/                ← TypeScript 源码
+│   ├── cli.ts          ← CLI 入口
+│   ├── mcp-server.ts   ← MCP Server 入口
+│   └── skills/         ← 技能实现
+│       ├── init.ts     ← 工作区初始化
+│       ├── plan.ts     ← 创建变更计划
+│       ├── checkpoint.ts ← 阶段审计与门禁
+│       ├── status.ts   ← 工作区状态查询
+│       ├── release.ts  ← 归档与记忆整合
+│       ├── agents.ts   ← 领域专家列表
+│       └── types.ts    ← 公共类型定义
+├── templates/          ← 初始化时复制到项目的模板
+│   ├── INSTRUCTIONS.md ← 核心协议文档
+│   └── doc-formats/    ← 文档格式模板 (proposal/design/impl-log 等)
 ├── agents/             ← 领域专家定义
 │   ├── README.md       ← 专家目录速查表
 │   └── *.md            ← 各专家的 prompt
 ├── skills/             ← Skills（可通过 skills.sh 安装）
 │   └── crew-*/SKILL.md ← 各 Skill 定义
-└── docs/               ← 用户文档
-    ├── quick-start.md  ← 快速开始
-    ├── guide.md        ← 使用指南
-    ├── scenarios.md    ← 使用场景 + 常见问题
-    ├── concepts.md     ← 核心概念
-    ├── specialists.md  ← 领域专家
-    └── examples/       ← 最佳实践
+├── docs/               ← VitePress 用户文档站点
+├── package.json        ← 包配置与脚本
+└── tsconfig.json       ← TypeScript 编译配置
 ```
 
 ## 许可证

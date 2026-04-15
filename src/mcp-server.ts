@@ -24,7 +24,7 @@ function formatResult(result: SkillResult) {
 
 const server = new McpServer({
   name: "dev-crew",
-  version: "0.5.0",
+  version: "0.5.1",
 });
 
 // --- Skill: init ---
@@ -33,7 +33,10 @@ server.tool(
   "初始化 DevCrew 工作区（创建 dev-crew/ 目录、INSTRUCTIONS.md、配置文件、Agent 记忆文件，可指定 AI 平台自动配置）",
   {
     cwd: z.string().describe("项目根目录的绝对路径"),
-    name: z.string().optional().describe("项目名称（默认从 package.json 或目录名推断）"),
+    name: z
+      .string()
+      .optional()
+      .describe("项目名称（默认从 package.json 或目录名推断）"),
     platform: z
       .array(z.enum(["copilot", "cursor", "claude"]))
       .optional()
@@ -79,7 +82,10 @@ server.tool(
   "归档已完成的变更，触发记忆整合",
   {
     cwd: z.string().describe("项目根目录的绝对路径"),
-    name: z.string().optional().describe("要归档的变更名称（不指定则归档全部）"),
+    name: z
+      .string()
+      .optional()
+      .describe("要归档的变更名称（不指定则归档全部）"),
   },
   async (input) => formatResult(skills.release(input)),
 );
@@ -98,7 +104,10 @@ server.tool(
   "阶段审计：运行审计清单 + 一致性检查 + 记忆同步提醒，确认当前阶段可推进",
   {
     cwd: z.string().describe("项目根目录的绝对路径"),
-    change: z.string().optional().describe("变更名称（不指定则自动选择第一个活跃变更）"),
+    change: z
+      .string()
+      .optional()
+      .describe("变更名称（不指定则自动选择第一个活跃变更）"),
   },
   async (input) => formatResult(skills.checkpoint(input)),
 );

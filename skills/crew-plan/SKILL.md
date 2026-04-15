@@ -4,7 +4,7 @@ user-invocable: true
 description: Create a new change proposal and enter the Plan phase of the PDEVI workflow. Supports Standard, Express, and Prototype modes.
 metadata:
   author: lordmos
-  version: 0.5.0
+  version: 0.5.1
 ---
 
 # crew plan — 创建变更计划

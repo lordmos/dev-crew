@@ -13,7 +13,7 @@ const program = new Command();
 program
   .name("crew")
   .description("DevCrew — AI Agent 软件开发团队编排工具")
-  .version("0.5.0");
+  .version("0.5.1");
 
 program
   .command("init")
@@ -38,7 +38,9 @@ program
       description: opts.description,
       mode: opts.mode as "standard" | "express" | "prototype" | undefined,
     });
-    console.log(result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`);
+    console.log(
+      result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`,
+    );
     for (const line of result.details) console.log(`  ${line}`);
     console.log();
     if (!result.ok) process.exitCode = 1;
@@ -61,7 +63,9 @@ program
   .argument("[name]", "要归档的变更名称（不指定则归档全部）")
   .action((name?: string) => {
     const result = release({ cwd: process.cwd(), name });
-    console.log(result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`);
+    console.log(
+      result.ok ? `\n✅ ${result.summary}` : `\n❌ ${result.summary}`,
+    );
     for (const line of result.details) console.log(`  ${line}`);
     console.log();
     if (!result.ok) process.exitCode = 1;
@@ -78,7 +82,9 @@ program
   .argument("[change]", "变更名称（不指定则自动选择第一个活跃变更）")
   .action((change?: string) => {
     const result = checkpoint({ cwd: process.cwd(), change });
-    console.log(result.ok ? `\n✅ ${result.summary}` : `\n⚠️  ${result.summary}`);
+    console.log(
+      result.ok ? `\n✅ ${result.summary}` : `\n⚠️  ${result.summary}`,
+    );
     for (const line of result.details) console.log(line);
     console.log();
     if (!result.ok) process.exitCode = 1;

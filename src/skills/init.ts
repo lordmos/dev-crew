@@ -1,4 +1,4 @@
-import { resolve, join, dirname } from "node:path";
+import { resolve, join, dirname, basename } from "node:path";
 import {
   existsSync,
   mkdirSync,
@@ -223,7 +223,7 @@ function inferProjectName(dir: string): string {
       /* ignore */
     }
   }
-  return dir.split("/").pop() ?? "my-project";
+  return basename(dir) || "my-project";
 }
 
 function generateYaml(projectName: string): string {

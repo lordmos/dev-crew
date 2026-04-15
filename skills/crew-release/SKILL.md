@@ -4,7 +4,7 @@ user-invocable: true
 description: Archive completed changes and consolidate agent memory. Moves change artifacts to archive and updates each agent's long-term knowledge base.
 metadata:
   author: lordmos
-  version: 0.5.0
+  version: 0.5.1
 ---
 
 # crew release — 归档变更与记忆整合

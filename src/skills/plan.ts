@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { success, failure, type SkillResult } from "./types.js";
 
 export interface PlanInput {
@@ -20,6 +20,14 @@ export function plan(input: PlanInput): SkillResult {
     mkdirSync(changesDir, { recursive: true });
   }
 
+  // Validate name: must be kebab-case, no path traversal
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(input.name)) {
+    return failure(`变更名称 "${input.name}" 无效`, [
+      "名称仅允许小写字母、数字和连字符（kebab-case）",
+      "示例: add-login, fix-nav-bug, redesign-dashboard",
+    ]);
+  }
+
   const changeDir = join(changesDir, input.name);
   if (existsSync(changeDir)) {
     return failure(`变更 "${input.name}" 已存在`, [
@@ -32,16 +40,19 @@ export function plan(input: PlanInput): SkillResult {
   mkdirSync(changeDir, { recursive: true });
 
   const proposalContent = `---
-name: ${input.name}
 mode: ${mode}
-stage: Plan
+plan_confirmed: false
 ---
 
 # ${input.name}
 
-## 需求概述
+## 目标
 
 ${input.description ?? "（待填写）"}
+
+## 需求
+
+（待细化）
 
 ## 验收标准
 
@@ -59,16 +70,36 @@ ${input.description ?? "（待填写）"}
   if (mode !== "express") {
     writeFileSync(
       join(changeDir, "design.md"),
-      `---
-change: ${input.name}
----
-
-# 设计文档
+      `# 设计文档
 
 （Architect 在 Design 阶段填写）
 `,
     );
     details.push(`创建 dev-crew/changes/${input.name}/design.md`);
+  }
+
+  // Sync resume.md with new change
+  const resumePath = join(crewDir, "resume.md");
+  if (existsSync(resumePath)) {
+    let resume = readFileSync(resumePath, "utf-8");
+    const entry = [
+      `  - name: ${input.name}`,
+      `    mode: ${mode}`,
+      `    phase: Plan`,
+      `    plan_confirmed: false`,
+      `    iterate_count: 0`,
+    ].join("\n");
+
+    if (/active_changes:\s*\[\]/.test(resume)) {
+      resume = resume.replace(/active_changes:\s*\[\]/, `active_changes:\n${entry}`);
+    } else if (/active_changes:/.test(resume)) {
+      const fmEnd = resume.indexOf("\n---", 4);
+      if (fmEnd !== -1) {
+        resume = resume.slice(0, fmEnd) + "\n" + entry + resume.slice(fmEnd);
+      }
+    }
+    writeFileSync(resumePath, resume);
+    details.push("更新 dev-crew/resume.md");
   }
 
   return success(`变更 "${input.name}" 已创建 (${mode})`, details);

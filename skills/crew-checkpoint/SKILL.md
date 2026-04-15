@@ -4,7 +4,7 @@ user-invocable: true
 description: Run a phase audit and consistency check on the current change. Validates all checklist items before advancing to the next PDEVI phase.
 metadata:
   author: lordmos
-  version: 0.5.0
+  version: 0.5.1
 ---
 
 # crew checkpoint — 阶段审计与一致性检查

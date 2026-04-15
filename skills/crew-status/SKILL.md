@@ -4,7 +4,7 @@ user-invocable: true
 description: View current DevCrew workspace status — active changes, current phase, progress, and open blockers.
 metadata:
   author: lordmos
-  version: 0.5.0
+  version: 0.5.1
 ---
 
 # crew status — 查看工作区状态

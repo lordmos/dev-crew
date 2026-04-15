@@ -1,6 +1,6 @@
 {
   "name": "@lordmos/dev-crew",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "AI-powered dev team orchestration framework — Skills + CLI + MCP Server",
   "keywords": [
     "ai",
@@ -35,7 +35,8 @@
   "files": [
     "dist/",
     "templates/",
-    "agents/"
+    "agents/",
+    "skills/"
   ],
   "scripts": {
     "build": "tsc",

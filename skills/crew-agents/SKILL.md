@@ -4,7 +4,7 @@ user-invocable: true
 description: List available domain specialists that can be activated for the DevCrew team — covering game dev, security, DevOps, AI/ML, and more.
 metadata:
   author: lordmos
-  version: 0.5.0
+  version: 0.5.1
 ---
 
 # crew agents — 列出可用领域专家

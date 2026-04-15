@@ -99,7 +99,7 @@ export function checkpoint(input: CheckpointInput): SkillResult {
   // Run audit checklist for current phase
   const checklist = AUDIT_CHECKLIST[currentPhase] ?? [];
   details.push(`=== ${currentPhase} 阶段审计清单 ===`);
-  const auditResults = runAudit(changeDir, currentPhase, proposal);
+  const auditResults = runAudit(changeDir, crewDir, currentPhase, proposal);
   for (let i = 0; i < checklist.length; i++) {
     const passed = auditResults[i];
     details.push(`  ${passed ? "[PASS]" : "[TODO]"} ${checklist[i]}`);
@@ -150,9 +150,11 @@ function detectPhase(changeDir: string, mode: string): Phase {
   const hasImplLog = existsSync(join(changeDir, "impl-log.md"));
   const hasDesign = existsSync(join(changeDir, "design.md"));
 
-  if (hasTestReport) return "Verify";
+  const flow = PHASE_FLOW[mode] ?? PHASE_FLOW.standard;
+
+  if (hasTestReport && flow.includes("Verify")) return "Verify";
   if (hasImplLog) return "Execute";
-  if (hasDesign) return "Design";
+  if (hasDesign && flow.includes("Design")) return "Design";
   return "Plan";
 }
 
@@ -161,7 +163,7 @@ function extractField(content: string, field: string): string | null {
   return match?.[1]?.trim() ?? null;
 }
 
-function runAudit(changeDir: string, phase: Phase, proposal: string): boolean[] {
+function runAudit(changeDir: string, crewDir: string, phase: Phase, proposal: string): boolean[] {
   switch (phase) {
     case "Plan": {
       const hasObjective = /## 目标/.test(proposal);
@@ -199,7 +201,13 @@ function runAudit(changeDir: string, phase: Phase, proposal: string): boolean[] 
       const reviewPath = join(changeDir, "review-report.md");
       const hasTest = existsSync(testPath);
       const hasReview = existsSync(reviewPath);
-      const verifyConfirmed = /verify_confirmed:\s*true/.test(proposal);
+      // verify_confirmed lives in resume.md, not proposal.md
+      const resumePath = join(crewDir, "resume.md");
+      let verifyConfirmed = false;
+      if (existsSync(resumePath)) {
+        const resume = readFileSync(resumePath, "utf-8");
+        verifyConfirmed = /verify_confirmed:\s*true/.test(resume);
+      }
       return [hasTest, hasReview, true, verifyConfirmed];
     }
     default:
@@ -231,7 +239,7 @@ function runConsistencyAudit(changeDir: string, crewDir: string): string[] {
   }
 
   // Check for oversized files (file pointer discipline)
-  const filesToCheck = ["proposal.md", "design.md", "impl-log.md"];
+  const filesToCheck = ["proposal.md", "design.md", "impl-log.md", "test-report.md", "review-report.md"];
   for (const file of filesToCheck) {
     const filePath = join(changeDir, file);
     if (existsSync(filePath)) {
